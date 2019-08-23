@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "634560724431",
+    "firebase_url": "https://aski-integrated.firebaseio.com",
+    "project_id": "aski-integrated",
+    "storage_bucket": "aski-integrated.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:634560724431:android:70437657be2f10df",
+        "android_client_info": {
+          "package_name": "com.example.aski_integrated"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "634560724431-pk0fjvivq203kltv27rp0aie6c8t59cj.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.aski_integrated",
+            "certificate_hash": "4681ea9a127917b19e2674b2ac5011a4f8d11f87"
+          }
+        },
+        {
+          "client_id": "634560724431-dbo3hscdgjvqgg0tjalp3m7qac326nd2.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAhF-H1BwA11kMUa3r1z3M2uAVajPRcJJY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "634560724431-dbo3hscdgjvqgg0tjalp3m7qac326nd2.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,0 +1,445 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:background="@drawable/artboard_1"
+        android:layout_height="match_parent">
+
+    <ImageButton
+            android:layout_width="150dp"
+            android:scaleType="fitCenter"
+            android:background="#00040303"
+            android:layout_height="50dp" app:srcCompat="@drawable/finish"
+            android:id="@+id/finishProgressBTNrp"
+            android:onClick="goFinishProgress"
+            app:layout_constraintEnd_toStartOf="@+id/cancelProgressBTNrp"
+            app:layout_constraintBottom_toBottomOf="@+id/cancelProgressBTNrp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/constraintLayout2" app:layout_constraintVertical_bias="0.0"/>
+
+    <ImageButton
+            android:layout_width="150dp"
+            android:scaleType="fitCenter"
+            android:background="#00040303"
+            android:layout_height="50dp" app:srcCompat="@drawable/cancel"
+            android:id="@+id/cancelProgressBTNrp"
+            android:onClick="goCancelProgress"
+            app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/finishProgressBTNrp"
+            app:layout_constraintTop_toBottomOf="@+id/constraintLayout2" app:layout_constraintVertical_bias="0.0"/>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="parent" app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:id="@+id/constraintLayout2">
+
+
+        <ImageButton
+                android:layout_width="30dp"
+                android:onClick="scanmoldbr"
+                android:scaleType="fitCenter"
+                android:background="#00000000"
+                android:layout_height="40dp"
+                app:srcCompat="@drawable/scan"
+                android:id="@+id/scanmoldrp"
+                app:layout_constraintTop_toTopOf="@+id/nomoldrpTV"
+                app:layout_constraintBottom_toBottomOf="@+id/nomoldrpTV"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/nomoldrpTV" android:layout_marginEnd="8dp"/>
+        <TextView
+                android:text=":"
+                android:textColor="@color/black"
+                android:fontFamily="@font/bahnschrift"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/tv7"
+                android:textSize="16sp" android:textStyle="bold"
+                app:layout_constraintTop_toTopOf="@+id/technician"
+                app:layout_constraintStart_toEndOf="@+id/technician"/>
+        <TextView
+                android:text="No. Mold"
+                android:fontFamily="@font/bahnschrift"
+                android:textColor="@color/black"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:id="@+id/judulProblem"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                android:layout_marginStart="8dp" android:layout_marginTop="16dp"
+                app:layout_constraintTop_toTopOf="parent" app:layout_constraintEnd_toStartOf="@+id/tv4"/>
+
+        <TextView
+                android:text="Problem"
+                android:fontFamily="@font/bahnschrift"
+                android:textColor="@color/black"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:id="@+id/tv123555"
+                android:textSize="18sp" android:textStyle="bold"
+                android:layout_marginTop="24dp"
+                app:layout_constraintTop_toBottomOf="@+id/tech4rp" app:layout_constraintStart_toStartOf="parent"
+                android:layout_marginStart="8dp" app:layout_constraintEnd_toStartOf="@+id/tv123412"/>
+        <TextView
+                android:text="Technician1"
+                android:textColor="@color/black"
+                android:fontFamily="@font/bahnschrift"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:id="@+id/technician"
+                android:textSize="16sp" android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="32dp" app:layout_constraintTop_toBottomOf="@+id/nomoldrpTV"
+                app:layout_constraintEnd_toStartOf="@+id/tv7"/>
+        <TextView
+                android:textColor="@color/black"
+                android:text="Technician3"
+                android:fontFamily="@font/bahnschrift"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:id="@+id/technician3"
+                android:textSize="16sp" android:textStyle="bold"
+                android:layout_marginTop="32dp"
+                app:layout_constraintTop_toBottomOf="@+id/tech2rp" app:layout_constraintStart_toStartOf="parent"
+                android:layout_marginStart="8dp" app:layout_constraintEnd_toStartOf="@+id/tv8"/>
+        <TextView
+                android:textColor="@color/black"
+                android:text="Technician2"
+                android:fontFamily="@font/bahnschrift"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:id="@+id/technician2"
+                android:textSize="16sp" android:textStyle="bold"
+                app:layout_constraintTop_toBottomOf="@+id/tech1rp" app:layout_constraintStart_toStartOf="parent"
+                android:layout_marginStart="8dp" android:layout_marginTop="32dp"
+                app:layout_constraintEnd_toStartOf="@+id/tv5"/>
+        <TextView
+                android:text="N/A"
+                android:textColor="@color/black"
+                android:id="@+id/tech1rp"
+                android:fontFamily="@font/bahnschrift"
+                android:textStyle="bold"
+                android:layout_width="0dp"
+                android:layout_height="25dp"
+                android:textSize="18sp"
+                app:layout_constraintTop_toTopOf="@+id/tv7"
+                app:layout_constraintStart_toEndOf="@+id/tv7"
+                android:layout_marginStart="8dp" app:layout_constraintEnd_toStartOf="@+id/scantech1"
+        />
+        <TextView
+                android:text="N/A"
+                android:textColor="@color/black"
+                android:id="@+id/tech4rp"
+                android:fontFamily="@font/bahnschrift"
+                android:textStyle="bold"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:textSize="18sp"
+                app:layout_constraintTop_toTopOf="@+id/tv6" app:layout_constraintStart_toEndOf="@+id/tv6"
+                android:layout_marginStart="8dp" app:layout_constraintEnd_toStartOf="@+id/scantech4"
+        />
+        <TextView
+                android:text="N/A"
+                android:textColor="@color/black"
+                android:id="@+id/tech3rp"
+                android:fontFamily="@font/bahnschrift"
+                android:textStyle="bold"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:textSize="18sp"
+                app:layout_constraintTop_toTopOf="@+id/tv8"
+                app:layout_constraintStart_toEndOf="@+id/tv8"
+                android:layout_marginStart="8dp" app:layout_constraintEnd_toStartOf="@+id/scantech3"
+        />
+        <TextView
+                android:text="N/A"
+                android:textColor="@color/black"
+                android:id="@+id/tech2rp"
+                android:fontFamily="@font/bahnschrift"
+                android:textStyle="bold"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:textSize="18sp"
+                app:layout_constraintTop_toTopOf="@+id/technician2" app:layout_constraintStart_toEndOf="@+id/tv5"
+                android:layout_marginStart="8dp" android:layout_marginEnd="8dp"
+                app:layout_constraintEnd_toStartOf="@+id/scantech2"/>
+        <TextView
+                android:text="Analisa"
+                android:textColor="@color/black"
+                android:fontFamily="@font/bahnschrift"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:id="@+id/tvanalisa"
+                android:textSize="18sp" android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                android:layout_marginStart="8dp" app:layout_constraintEnd_toStartOf="@+id/tv2"
+                android:layout_marginTop="24dp" app:layout_constraintTop_toBottomOf="@+id/jamTV"/>
+        <TextView
+                android:text="Jenis Problem :"
+                android:textColor="@color/black"
+                android:fontFamily="@font/bahnschrift"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:id="@+id/tv3"
+                android:textSize="18sp" android:textStyle="bold"
+                android:textAlignment="center"
+                app:layout_constraintStart_toStartOf="parent"
+                android:layout_marginStart="8dp" android:layout_marginTop="16dp"
+                app:layout_constraintTop_toBottomOf="@+id/analisarp"
+                app:layout_constraintEnd_toStartOf="@+id/jenisProblemETrp" android:layout_marginEnd="8dp"/>
+        <TextView
+                android:text=":"
+                android:textColor="@color/black"
+                android:fontFamily="@font/bahnschrift"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/tv123412"
+                android:textSize="18sp" android:textStyle="bold"
+                app:layout_constraintTop_toTopOf="@+id/tv123555" app:layout_constraintStart_toEndOf="@+id/tv123555"/>
+        <TextView
+                android:text=":"
+                android:textColor="@color/black"
+                android:fontFamily="@font/bahnschrift"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/tv9"
+                android:textSize="18sp" android:textStyle="bold"
+                app:layout_constraintTop_toTopOf="@+id/estimasi" app:layout_constraintStart_toEndOf="@+id/estimasi"/>
+        <TextView
+                android:text=":"
+                android:textColor="@color/black"
+                android:fontFamily="@font/bahnschrift"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/tv6"
+                android:textSize="16sp" android:textStyle="bold"
+                app:layout_constraintTop_toTopOf="@+id/technician4"
+                app:layout_constraintStart_toEndOf="@+id/technician4"/>
+        <TextView
+                android:text=":"
+                android:textColor="@color/black"
+                android:fontFamily="@font/bahnschrift"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/tv8"
+                android:textSize="16sp" android:textStyle="bold"
+                app:layout_constraintTop_toTopOf="@+id/technician3"
+                app:layout_constraintStart_toEndOf="@+id/technician3"/>
+        <TextView
+                android:text=":"
+                android:textColor="@color/black"
+                android:fontFamily="@font/bahnschrift"
+                android:layout_width="4dp"
+                android:layout_height="wrap_content"
+                android:id="@+id/tv5"
+                android:textSize="16sp" android:textStyle="bold"
+                app:layout_constraintStart_toEndOf="@+id/technician2"
+                app:layout_constraintTop_toTopOf="@+id/technician2"/>
+        <TextView
+                android:text=":"
+                android:textColor="@color/black"
+                android:fontFamily="@font/bahnschrift"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/tv4"
+                android:textSize="18sp" android:textStyle="bold"
+                app:layout_constraintTop_toTopOf="@+id/judulProblem"
+                app:layout_constraintStart_toEndOf="@+id/judulProblem"/>
+        <TextView
+                android:text=":"
+                android:textColor="@color/black"
+                android:fontFamily="@font/bahnschrift"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/tv2"
+                android:textSize="18sp" android:textStyle="bold"
+                app:layout_constraintTop_toTopOf="@+id/tvanalisa" app:layout_constraintStart_toEndOf="@+id/tvanalisa"/>
+        <EditText
+                android:layout_width="0dp"
+                android:id="@+id/problemETrp"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/bahnschrift"
+                android:textStyle="bold"
+                android:ems="10"
+                android:inputType="textMultiLine" android:hint="Problem"
+                app:layout_constraintTop_toTopOf="@+id/tv123412" app:layout_constraintStart_toEndOf="@+id/tv123412"
+                android:layout_marginStart="8dp" android:layout_marginEnd="16dp"
+                app:layout_constraintEnd_toEndOf="parent"/>
+
+        <EditText android:layout_width="0dp"
+                  android:fontFamily="@font/bahnschrift"
+                  android:textStyle="bold"
+                  android:hint="Isi Estimasi Jam"
+                  android:textSize="15sp"
+                  android:maxLength="3"
+                  android:text="0"
+                  android:layout_height="wrap_content"
+                  android:inputType="number" android:id="@+id/estimasi_jamET"
+                  app:layout_constraintTop_toTopOf="@+id/jamTV" app:layout_constraintStart_toEndOf="@+id/jamTV"
+                  app:layout_constraintBottom_toBottomOf="@+id/jamTV" android:layout_marginStart="8dp"
+                  app:layout_constraintEnd_toStartOf="@+id/textView"/>
+
+        <EditText android:layout_width="0dp"
+                  android:hint="Estimasi Menit"
+                  android:fontFamily="@font/bahnschrift"
+                  android:textSize="15sp"
+                  android:textStyle="bold"
+                  android:text="0"
+                  android:maxLength="2"
+                  android:layout_height="wrap_content"
+                  android:id="@+id/estimasi_menitET"
+                  app:layout_constraintStart_toEndOf="@+id/textView"
+                  app:layout_constraintTop_toTopOf="@+id/textView"
+                  app:layout_constraintBottom_toBottomOf="@+id/textView" android:layout_marginStart="8dp"
+                  android:inputType="number" app:layout_constraintEnd_toEndOf="parent" android:layout_marginEnd="8dp"/>
+        <EditText
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:id="@+id/analisarp"
+                android:fontFamily="@font/bahnschrift"
+                android:textStyle="bold"
+                android:inputType="textMultiLine"
+                android:hint="Analisa"
+                app:layout_constraintStart_toEndOf="@+id/tv2"
+                android:layout_marginStart="4dp"
+                app:layout_constraintTop_toTopOf="@+id/tv2" android:layout_marginEnd="8dp"
+                app:layout_constraintEnd_toEndOf="parent"/>
+        <EditText
+                android:layout_width="0dp"
+                android:textStyle="bold"
+                android:textColor="@color/black"
+                android:fontFamily="@font/bahnschrift"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:id="@+id/jenisProblemETrp"
+                android:inputType="textMultiLine"
+                android:hint="Jenis" android:textAlignment="center"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/tv3" android:layout_marginStart="8dp"
+                app:layout_constraintHorizontal_bias="0.0" android:layout_marginEnd="32dp"
+                app:layout_constraintTop_toTopOf="@+id/tv3"
+                android:layout_marginBottom="32dp" app:layout_constraintVertical_bias="0.0"/>
+
+        <TextView
+                android:text="Technician4"
+                android:fontFamily="@font/bahnschrift"
+                android:textStyle="bold"
+                android:textColor="@color/black"
+                android:textSize="16sp"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:id="@+id/technician4"
+                android:layout_marginTop="32dp"
+                app:layout_constraintTop_toBottomOf="@+id/tech3rp" app:layout_constraintStart_toStartOf="parent"
+                android:layout_marginStart="8dp" app:layout_constraintEnd_toStartOf="@+id/tv6"/>
+        <ImageButton
+                android:layout_width="30dp"
+                android:onClick="scantech4"
+                android:scaleType="fitCenter"
+                android:background="#00000000"
+                android:layout_height="40dp"
+                app:srcCompat="@drawable/scan"
+                android:id="@+id/scantech4"
+                app:layout_constraintTop_toTopOf="@+id/tech4rp"
+                app:layout_constraintBottom_toBottomOf="@+id/tech4rp" app:layout_constraintStart_toEndOf="@+id/tech4rp"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:layout_marginEnd="8dp"/>
+        <ImageButton
+                android:layout_width="30dp"
+                android:onClick="scantech3"
+                android:scaleType="fitCenter"
+                android:background="#00000000"
+                android:layout_height="40dp"
+                app:srcCompat="@drawable/scan"
+                android:id="@+id/scantech3"
+                app:layout_constraintTop_toTopOf="@+id/tech3rp" app:layout_constraintBottom_toBottomOf="@+id/tech3rp"
+                app:layout_constraintStart_toEndOf="@+id/tech3rp" app:layout_constraintEnd_toEndOf="parent"
+                android:layout_marginEnd="8dp"/>
+        <ImageButton
+                android:layout_width="30dp"
+                android:onClick="scantech2"
+                android:scaleType="fitCenter"
+                android:background="#00000000"
+                android:layout_height="40dp"
+                app:srcCompat="@drawable/scan"
+                android:id="@+id/scantech2"
+                app:layout_constraintTop_toTopOf="@+id/tech2rp"
+                app:layout_constraintBottom_toBottomOf="@+id/tech2rp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/tech2rp" android:layout_marginEnd="8dp"/>
+        <ImageButton
+                android:layout_width="30dp"
+                android:scaleType="fitCenter"
+                android:onClick="scantech1"
+                android:background="#00000000"
+                android:layout_height="40dp"
+                app:srcCompat="@drawable/scan"
+                android:id="@+id/scantech1"
+                app:layout_constraintStart_toEndOf="@+id/tech1rp"
+                app:layout_constraintTop_toTopOf="@+id/tech1rp"
+                app:layout_constraintBottom_toBottomOf="@+id/tech1rp"
+                app:layout_constraintEnd_toEndOf="parent" android:layout_marginEnd="8dp"/>
+        <TextView
+                android:text="Estimasi"
+                android:textSize="18sp"
+                android:fontFamily="@font/bahnschrift"
+                android:textColor="@color/black"
+                android:textStyle="bold"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:id="@+id/estimasi"
+                app:layout_constraintTop_toBottomOf="@+id/problemETrp"
+                app:layout_constraintStart_toStartOf="parent"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="24dp"
+                app:layout_constraintEnd_toStartOf="@+id/tv9"/>
+        <TextView
+                android:text="N/A"
+                android:textSize="18sp"
+                android:fontFamily="@font/bahnschrift"
+                android:textColor="@color/black"
+                android:textStyle="bold"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:id="@+id/nomoldrpTV"
+                app:layout_constraintTop_toTopOf="@+id/judulProblem"
+                app:layout_constraintStart_toEndOf="@+id/tv4"
+                android:layout_marginStart="8dp" app:layout_constraintEnd_toStartOf="@+id/scanmoldrp"
+        />
+        <TextView
+                android:text="Jam :"
+                android:fontFamily="@font/bahnschrift"
+                android:textStyle="bold"
+                android:textSize="16sp"
+                android:textColor="@color/black"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/jamTV" app:layout_constraintStart_toEndOf="@+id/tv9" android:layout_marginStart="8dp"
+                app:layout_constraintTop_toTopOf="@+id/estimasi"
+                app:layout_constraintBottom_toBottomOf="@+id/estimasi"
+                app:layout_constraintEnd_toStartOf="@+id/estimasi_jamET" android:layout_marginEnd="7dp"
+        />
+
+        <TextView android:layout_width="wrap_content"
+                  android:text="Menit :"
+                  android:textSize="16sp"
+                  android:textColor="@color/black"
+                  android:fontFamily="@font/bahnschrift"
+                  android:textStyle="bold"
+                  android:layout_height="wrap_content"
+                  app:layout_constraintTop_toTopOf="@+id/estimasi_jamET"
+                  app:layout_constraintStart_toEndOf="@+id/estimasi_jamET"
+                  app:layout_constraintBottom_toBottomOf="@+id/estimasi_jamET" android:id="@+id/textView"
+                  app:layout_constraintEnd_toStartOf="@+id/estimasi_menitET"
+        />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
