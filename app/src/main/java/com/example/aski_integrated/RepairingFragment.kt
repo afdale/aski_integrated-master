@@ -32,12 +32,12 @@ class RepairingFragment : Fragment() {
                 val intent = Intent(activity, PlanningAdapter::class.java)
                 activity!!.startActivity(intent)
             }*/
-
+/*
             val improvement = v.findViewById<ImageButton>(R.id.improvement) as ImageButton
             improvement.setOnClickListener {
                 val intent = Intent(activity, ImprovementAdapter::class.java)
                 activity!!.startActivity(intent)
-            }
+            }*/
 
             return v
 

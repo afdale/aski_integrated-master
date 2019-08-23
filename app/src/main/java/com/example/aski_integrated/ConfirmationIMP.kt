@@ -1,3 +1,4 @@
+/*
 package com.example.aski_integrated
 
 import android.app.Dialog
@@ -175,4 +176,4 @@ class ConfirmationIMP : AppCompatActivity() {
             //progressDialog.hide()
         }
     }
-}
+}*/

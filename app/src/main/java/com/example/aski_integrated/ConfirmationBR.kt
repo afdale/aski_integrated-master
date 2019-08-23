@@ -73,12 +73,10 @@ class ConfirmationBR : AppCompatActivity() {
         tech2 = getIntent().getStringExtra("tech2")
         tech3 = getIntent().getStringExtra("tech3")
         tech4 = getIntent().getStringExtra("tech4")
-
         analisa = getIntent().getStringExtra("analisa")
         problem = getIntent().getStringExtra("problem")
         jenisproblem = getIntent().getStringExtra("jenisproblem")
         estimasi = getIntent().getStringExtra("estimasi")
-        perbaikan = getIntent().getStringExtra("perbaikan")
         start = getIntent().getStringExtra("start")
 
         nomoldconf.text = nomold
@@ -116,11 +114,9 @@ class ConfirmationBR : AppCompatActivity() {
         launch4.putExtra("tech2", tech2)
         launch4.putExtra("tech3", tech3)
         launch4.putExtra("tech4", tech4)
-
         launch4.putExtra("analisa", analisa)
         launch4.putExtra("problem", problem)
         launch4.putExtra("jenisproblem", jenisproblem)
-        launch4.putExtra("start", estimasi)
         launch4.putExtra("estimasi", estimasi)
         launch4.putExtra("start", start)
         launch4.putExtra("perbaikan", perbaikan)
