@@ -1,3 +1,4 @@
+/*
 package com.example.aski_integrated
 
 
@@ -22,11 +23,13 @@ import android.content.Intent.FLAG_ACTIVITY_NEW_TASK
 
 class MyFirebaseMessagingService : FirebaseMessagingService() {
 
-    /**
+    */
+/**
      * Called when message is received.
      *
      * @param remoteMessage Object representing the message received from Firebase Cloud Messaging.
-     */
+     *//*
+
     // [START receive_message]
     override fun onMessageReceived(remoteMessage: RemoteMessage?) {
         // [START_EXCLUDE]
@@ -47,7 +50,9 @@ class MyFirebaseMessagingService : FirebaseMessagingService() {
         remoteMessage?.data?.isNotEmpty()?.let {
             Log.d(TAG, "Message data payload: " + remoteMessage.data)
             sendNotification(remoteMessage.notification!!.body!!)
-            if (/* Check if data needs to be processed by long running job */ true) {
+            if (*/
+/* Check if data needs to be processed by long running job *//*
+ true) {
                 // For long-running tasks (10 seconds or more) use WorkManager.
                 scheduleJob()
             } else {
@@ -67,11 +72,13 @@ class MyFirebaseMessagingService : FirebaseMessagingService() {
     // [END receive_message]
 
     // [START on_new_token]
-    /**
+    */
+/**
      * Called if InstanceID token is updated. This may occur if the security of
      * the previous token had been compromised. Note that this is called when the InstanceID token
      * is initially generated so this is where you would retrieve the token.
-     */
+     *//*
+
     override fun onNewToken(token: String?) {
         Log.d(TAG, "Refreshed token: $token")
 
@@ -82,9 +89,11 @@ class MyFirebaseMessagingService : FirebaseMessagingService() {
     }
     // [END on_new_token]
 
-    /**
+    */
+/**
      * Schedule async work using WorkManager.
-     */
+     *//*
+
     private fun scheduleJob() {
         // [START dispatch_job]
         val work = OneTimeWorkRequest.Builder(MyWorker::class.java).build()
@@ -92,32 +101,38 @@ class MyFirebaseMessagingService : FirebaseMessagingService() {
         // [END dispatch_job]
     }
 
-    /**
+    */
+/**
      * Handle time allotted to BroadcastReceivers.
-     */
+     *//*
+
     private fun handleNow() {
         Log.d(TAG, "Short lived task is done.")
     }
 
-    /**
+    */
+/**
      * Persist token to third-party servers.
      *
      * Modify this method to associate the user's FCM InstanceID token with any server-side account
      * maintained by your application.
      *
      * @param token The new token.
-     */
+     *//*
+
     private fun sendRegistrationToServer(token: String?) {
         // TODO: Implement this method to send token to your app server.
 
 
     }
 
-    /**
+    */
+/**
      * Create and show a simple notification containing the received FCM message.
      *
      * @param messageBody FCM message body received.
-     */
+     *//*
+
     private fun sendNotification(messageBody: String) {
 
         // Since android Oreo notification channel is needed.
@@ -152,7 +167,9 @@ class MyFirebaseMessagingService : FirebaseMessagingService() {
 
             val intent = Intent(this, MainActivity::class.java)
             intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
-            val pendingIntent = PendingIntent.getActivity(this, 0 /* Request code */, intent,
+            val pendingIntent = PendingIntent.getActivity(this, 0 */
+/* Request code *//*
+, intent,
                 PendingIntent.FLAG_ONE_SHOT)
 
             val channelId = getString(R.string.default_notification_channel_id)
@@ -169,7 +186,9 @@ class MyFirebaseMessagingService : FirebaseMessagingService() {
 
             val notificationManager = getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
 
-            notificationManager.notify(0 /* ID of notification */, notificationBuilder.build())
+            notificationManager.notify(0 */
+/* ID of notification *//*
+, notificationBuilder.build())
 
         }
 
@@ -179,4 +198,4 @@ class MyFirebaseMessagingService : FirebaseMessagingService() {
 
         private const val TAG = "MyFirebaseMsgService"
     }
-}
+}*/

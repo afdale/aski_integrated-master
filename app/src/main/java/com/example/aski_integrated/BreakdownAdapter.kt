@@ -81,18 +81,20 @@ class BreakdownAdapter: AppCompatActivity() {
                         try {
                             for (key in p0.children) {
                                 val a = key.child("mold").getValue(String::class.java)
-                                val b = key.child("start").getValue(Long::class.java)
-                                val c = key.child("tech1").getValue(String::class.java)
-                                val d = key.child("tech2").getValue(String::class.java)
-                                val e = key.child("tech3").getValue(String::class.java)
-                                val f = key.child("tech4").getValue(String::class.java)
-                                val g = key.child("problem").getValue(String::class.java)
-                                val h = key.child("analisa").getValue(String::class.java)
-                                val i = key.child("jenisproblem").getValue(String::class.java)
-                                val j = key.child("key").getValue(String::class.java)
-                                val k = key.child("estimasi").getValue(Long::class.java)
-                                val l = key.child("estimasijam").getValue(Long::class.java)
-                                val m = key.child("estimasimenit").getValue(Long::class.java)
+                                val b = key.child("tech1").getValue(String::class.java)
+                                val c = key.child("tech2").getValue(String::class.java)
+                                val d = key.child("tech3").getValue(String::class.java)
+                                val e = key.child("tech4").getValue(String::class.java)
+                                val f = key.child("problem").getValue(String::class.java)
+                                val g = key.child("analisa").getValue(String::class.java)
+                                val h = key.child("jenisproblem").getValue(String::class.java)
+                                val i = key.child("estimasi").getValue(Long::class.java)
+                                val j = key.child("estimasijam").getValue(Long::class.java)
+                                val k = key.child("estimasimenit").getValue(Long::class.java)
+                                val l = key.child("key").getValue(String::class.java)
+                                val m = key.child("start").getValue(Long::class.java)
+
+
 
 
 
