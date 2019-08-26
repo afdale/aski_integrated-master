@@ -1,48 +1,49 @@
 package com.example.aski_integrated
 
-import android.hardware.Camera
+import android.content.Intent
 import android.os.Bundle
+import android.widget.ImageButton
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import androidx.fragment.app.Fragment
-import com.google.android.material.bottomnavigation.BottomNavigationView
-import kotlinx.android.synthetic.main.activity_main.*
 
 
 class MainActivity : AppCompatActivity() {
-    var fragobjrepair: RepairingFragment? = null
 
-
-
-    private fun replaceFragment(fragment: Fragment) {
-        val fragmentTransaction = supportFragmentManager.beginTransaction()
-        fragmentTransaction.replace(R.id.letak_fragment, fragment)
-        fragmentTransaction.commit()
-    }
-
-    private val mOnNavigationItemSelectedListener = BottomNavigationView.OnNavigationItemSelectedListener { item ->
-        when (item.itemId) {
-
-            R.id.navigation_andon -> {
-                replaceFragment(AndonFragment())
-                return@OnNavigationItemSelectedListener true
-            }
-            R.id.navigation_repairing -> {
-                replaceFragment(RepairingFragment())
-                return@OnNavigationItemSelectedListener true
-            }
-
-        }
-        false
-    }
+    private lateinit var panggilanandon: ImageButton
+    private lateinit var breakdown: ImageButton
+    private lateinit var planning: ImageButton
+    private lateinit var improvement: ImageButton
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        nav_view.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener)
-        replaceFragment(AndonFragment())
-        fragobjrepair = RepairingFragment()
-    }
+        try {
+            panggilanandon = findViewById(R.id.panggilanandon)
+             panggilanandon.setOnClickListener {
+            startActivity(Intent(this, ActivityAndon::class.java))
+        }
+
+            breakdown = findViewById(R.id.breakdown)
+            breakdown.setOnClickListener {
+                startActivity(Intent(this, BreakdownAdapter::class.java))
+            }
+
+             /* planning = findViewById(R.id.planning)
+            planning.setOnClickListener {
+            startActivity(Intent(this, PlanningAdapter::class.java))
+        }*/
+
+      /*  improvement = findViewById(R.id.improvement)
+        improvement.setOnClickListener {
+            startActivity(Intent(this, ImprovementAdapter::class.java))
+        }*/
+
+        }catch (ex:Exception){
+            Toast.makeText(this, "$ex", Toast.LENGTH_LONG).show()
+        }
+
 
     }
+}
 
 

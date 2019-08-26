@@ -75,7 +75,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/judul2"
             app:layout_constraintHorizontal_bias="1.0" app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintVertical_bias="0.0" android:id="@+id/linearLayout3">
+            app:layout_constraintVertical_bias="0.0" android:id="@+id/linearLayout3" android:layout_marginBottom="32dp">
         <ListView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent" android:id="@+id/wclv"/>
