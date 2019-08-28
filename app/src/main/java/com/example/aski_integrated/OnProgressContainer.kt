@@ -1,18 +1,25 @@
 package com.example.aski_integrated
 
 class OnProgressContainer {
+<<<<<<< HEAD
 
+=======
+>>>>>>> ff9e8ff41cf574c5585b922b7e7156a9c134b26c
     var mMc: String? = null
     var mProblem: String? = null
     var mTimestamp: Long? = null
     var mRepairTimestamp: Long? = null
     var mKey:String? = null
     var mIssuedby:String? = null
+<<<<<<< HEAD
 
     constructor() {
 
     }
 
+=======
+
+>>>>>>> ff9e8ff41cf574c5585b922b7e7156a9c134b26c
     constructor(timestamp: Long?,repairtimestamp: Long?, mc: String?, problem: String?, key: String?,issuedby: String?) {
         this.mTimestamp = timestamp
         this.mRepairTimestamp = repairtimestamp
@@ -69,7 +76,4 @@ class OnProgressContainer {
     fun setRepairTimestamp(repairtimestamp: Long?) {
         mRepairTimestamp = repairtimestamp
     }
-
-
-
 }
