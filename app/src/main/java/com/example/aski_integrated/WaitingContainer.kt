@@ -2,11 +2,12 @@ package com.example.aski_integrated
 
 class WaitingContainer {
 
-    var mMold: String? = null
+    var mMc: String? = null
     var mProblem: String? = null
     var mTimestamp: Long? = null
     var mRepairTimestamp: Long? = null
     var mKey:String? = null
+    var mIssuedby:String? = null
     var mPic:String? = null
     var mPerbaikan:String? = null
     var mJenisproblem:String? = null
@@ -16,22 +17,26 @@ class WaitingContainer {
 
     }
 
-    constructor(finishrepairtimestamp: Long?,timestamp: Long?,
-                repairtimestamp: Long?, mold: String?, problem: String?,
-                key: String?,jenisproblem: String?,perbaikan: String?,pic: String?)
-    {
+    constructor(finishrepairtimestamp: Long?,timestamp: Long?,repairtimestamp: Long?, mc: String?, problem: String?, key: String?,issuedby: String?,jenisproblem: String?,perbaikan: String?,pic: String?) {
         this.mTimestamp = timestamp
         this.mRepairTimestamp = repairtimestamp
-        this.mMold = mold
+        this.mMc = mc
         this.mProblem = problem
         this.mKey = key
+        this.mIssuedby = issuedby
         this.mFinishRepairTimestamp = finishrepairtimestamp
         this.mPic = pic
         this.mPerbaikan = perbaikan
         this.mJenisproblem = jenisproblem
     }
 
+    fun getIssuedby(): String? {
+        return mIssuedby
+    }
 
+    fun setIssuedby(issuedby: String?) {
+        mIssuedby = issuedby
+    }
 
     fun getKey(): String? {
         return mKey
@@ -41,12 +46,12 @@ class WaitingContainer {
         mKey = key
     }
 
-    fun getMold(): String? {
-        return mMold
+    fun getMc(): String? {
+        return mMc
     }
 
-    fun setMold(mold: String?) {
-        mMold = mold
+    fun setMc(mc: String?) {
+        mMc = mc
     }
 
     fun getProblem(): String? {

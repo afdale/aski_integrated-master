@@ -1,4 +1,3 @@
-/*
 package com.example.aski_integrated
 
 import android.app.Activity
@@ -34,7 +33,6 @@ class PlanningSubmit : AppCompatActivity() {
     //lateinit var estimasi: TextView
     //var estimasiwkt: String = "Estimasi Waktu"
 
-
     lateinit var problem: EditText
     lateinit var analisa: EditText
     lateinit var jenisproblem: EditText
@@ -50,11 +48,9 @@ class PlanningSubmit : AppCompatActivity() {
     var tech3: String? = "N/A"
     var tech4: String? = "N/A"
 
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.formsubmit)
-        //val database = FirebaseDatabase.getInstance()
         ref = FirebaseDatabase.getInstance().getReference().child("planning").child("onprogress")
             .child("REPAIRING")
 
@@ -81,16 +77,13 @@ class PlanningSubmit : AppCompatActivity() {
         estimasi_jam = findViewById<EditText>(R.id.estimasi_jamET)
         estimasi_menit = findViewById<EditText>(R.id.estimasi_menitET)
 
-
         nomold.text = mold
         technician1.text = tech1
         technician2.text = tech2
         technician3.text = tech3
         technician4.text = tech4
 
-*/
-/*
-        val estimasiBTN = findViewById<ImageButton>(R.id.estimasiBTN)
+        /*val estimasiBTN = findViewById<ImageButton>(R.id.estimasiBTN)
         val estimasiTV = findViewById<TextView>(R.id.estimasiTV)
 
         estimasiBTN.setOnClickListener {
@@ -107,10 +100,7 @@ class PlanningSubmit : AppCompatActivity() {
                 cal.get(Calendar.MINUTE),
                 true
             ).show()
-        }
-        *//*
-
-
+        }*/
 
         btnmold!!.setOnClickListener {
             val intent = Intent(this@PlanningSubmit, BarcodeScannerActivity::class.java)
@@ -139,8 +129,7 @@ class PlanningSubmit : AppCompatActivity() {
         }
         btnfinish!!.setOnClickListener {
             savedata()
-
-            val intent = Intent(this, BreakdownAdapter::class.java)
+            val intent = Intent(this, PlanningAdapter::class.java)
             startActivity(intent)
         }
     }
@@ -164,13 +153,12 @@ class PlanningSubmit : AppCompatActivity() {
             var estimasi_menit: Long = 0
             var totalestimasi: Long = 0
 
-            estimasi_jam = estimasi_jamET.text.toString().toLong() * 60
+            estimasi_jam = estimasi_jamET.text.toString().toLong()
             estimasi_menit = estimasi_menitET.text.toString().toLong()
 
             totalestimasi = estimasi_jam + estimasi_menit
 
             Toast.makeText(this, "$totalestimasi", Toast.LENGTH_LONG).show()
-
 
             ref.child(moldId).child("key").setValue(moldId)
             ref.child(moldId).child("mold").setValue(mold)
@@ -183,7 +171,6 @@ class PlanningSubmit : AppCompatActivity() {
             ref.child(moldId).child("analisa").setValue(analisa)
             ref.child(moldId).child("jenisproblem").setValue(jenisproblem)
             ref.child(moldId).child("start").setValue(ServerValue.TIMESTAMP)
-
             Toast.makeText(this, "Success", Toast.LENGTH_SHORT).show()
 
             nomoldrpTV.setText("")
@@ -290,9 +277,6 @@ class PlanningSubmit : AppCompatActivity() {
     }
 
     fun goFinishProgress(view: View) {
-
-
         finish()
     }
-
-}*/
+}

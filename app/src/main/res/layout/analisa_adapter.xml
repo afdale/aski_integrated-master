@@ -7,101 +7,137 @@
                                                    android:layout_height="wrap_content">
 
     <TextView
-            android:text="Problem :"
-            android:fontFamily="@font/bahnschrift"
-            android:textColor="@color/black"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
             android:id="@+id/analisarp"
-            android:layout_marginTop="8dp"
-            app:layout_constraintTop_toBottomOf="@+id/hitungrp" app:layout_constraintStart_toStartOf="parent"
-            android:layout_marginStart="26dp" android:layout_marginBottom="10dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-    />
-    <TextView
-            android:text="Problem"
-            android:fontFamily="@font/bahnschrift"
-            android:textStyle="bold"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:fontFamily="@font/bahnschrift"
+            android:text="Problem :"
+            android:textColor="@color/black"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/problemTV"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/hitungrp" />
+
+    <TextView
             android:id="@+id/problemTV"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/bahnschrift"
+            android:text="Problem"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/analisarp"
             app:layout_constraintTop_toTopOf="@+id/analisarp"
-            app:layout_constraintStart_toEndOf="@+id/analisarp" android:layout_marginStart="4dp"
-            android:layout_marginBottom="16dp" app:layout_constraintBottom_toBottomOf="parent"/>
+            app:layout_constraintVertical_bias="0.0" />
 
     <Chronometer
-            android:fontFamily="@font/bahnschrift"
-            android:textColor="@color/black"
             android:id="@+id/hitungrp"
             android:layout_width="149dp"
             android:layout_height="30dp"
-            android:textSize="24sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintBottom_toTopOf="@+id/textView3"/>
-    <TextView
-            android:text="No.Mold"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="24dp"
+            android:layout_marginBottom="24dp"
             android:fontFamily="@font/bahnschrift"
-            android:textStyle="bold"
             android:textColor="@color/black"
             android:textSize="24sp"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:id="@+id/nomoldrpTV"
-            app:layout_constraintEnd_toStartOf="@+id/hitungrp"
-            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBottom_toTopOf="@+id/textView3"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/nomoldrpTV"
             app:layout_constraintTop_toTopOf="parent"
-            android:layout_marginStart="26dp" android:layout_marginEnd="16dp"
-            app:layout_constraintBottom_toTopOf="@+id/analisarp"/>
-
-    <TextView android:layout_width="wrap_content"
-              android:text="Estimasi :"
-              android:fontFamily="@font/bahnschrift"
-              android:textColor="@color/black"
-              android:textStyle="bold"
-              android:layout_height="wrap_content"
-              android:id="@+id/textView4"
-              app:layout_constraintStart_toEndOf="@+id/problemTV" android:layout_marginStart="12dp"
-              tools:layout_editor_absoluteY="71dp"/>
-    <TextView android:layout_width="wrap_content"
-              android:text="Menit"
-              android:fontFamily="@font/bahnschrift"
-              android:textColor="@color/black"
-              android:layout_height="wrap_content"
-              android:id="@+id/textView3"
-              app:layout_constraintStart_toEndOf="@+id/estimasimenit" app:layout_constraintBottom_toBottomOf="parent"
-              android:layout_marginBottom="12dp" app:layout_constraintEnd_toEndOf="parent"
-              app:layout_constraintHorizontal_bias="0.06"/>
-
-    <TextView android:layout_width="wrap_content"
-              android:text="Jam"
-              android:fontFamily="@font/bahnschrift"
-              android:textColor="@color/black"
-              android:layout_height="wrap_content"
-              android:id="@+id/textView2"
-              app:layout_constraintTop_toTopOf="@+id/estimasijam"
-              app:layout_constraintBottom_toBottomOf="@+id/estimasijam"
-              app:layout_constraintStart_toEndOf="@+id/estimasijam"
-              app:layout_constraintEnd_toStartOf="@+id/estimasimenit"/>
-    <TextView android:layout_width="wrap_content"
-              android:text="Menit"
-              android:fontFamily="@font/bahnschrift"
-              android:textColor="@color/green"
-              android:id="@+id/estimasimenit"
-              android:layout_height="wrap_content"
-              app:layout_constraintTop_toTopOf="@+id/textView2"
-              app:layout_constraintBottom_toBottomOf="@+id/textView2"
-              app:layout_constraintStart_toEndOf="@+id/textView2" android:layout_marginStart="12dp"
-              app:layout_constraintVertical_bias="0.0"/>
+            app:layout_constraintVertical_bias="0.893" />
 
     <TextView
-            android:text="Jam"
+            android:id="@+id/nomoldrpTV"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="24dp"
+            android:layout_marginBottom="24dp"
             android:fontFamily="@font/bahnschrift"
-            android:textColor="@color/green"
+            android:text="No.Mold"
+            android:textColor="@color/black"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@+id/analisarp"
+            app:layout_constraintEnd_toStartOf="@+id/hitungrp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+            android:id="@+id/estimasimenit"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/estimasijam"
-            app:layout_constraintStart_toEndOf="@+id/textView4"
             android:layout_marginStart="8dp"
-            app:layout_constraintTop_toTopOf="@+id/textView4" app:layout_constraintBottom_toBottomOf="@+id/textView4"/>
+            android:fontFamily="@font/bahnschrift"
+            android:text="Menit"
+            android:textColor="@color/green"
+            app:layout_constraintBottom_toBottomOf="@+id/textView2"
+            app:layout_constraintEnd_toStartOf="@+id/textView3"
+            app:layout_constraintStart_toEndOf="@+id/textView2"
+            app:layout_constraintTop_toTopOf="@+id/textView2"
+            app:layout_constraintVertical_bias="0.0" />
+
+    <TextView
+            android:id="@+id/estimasijam"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:fontFamily="@font/bahnschrift"
+            android:text="Jam"
+            android:textColor="@color/green"
+            app:layout_constraintBottom_toBottomOf="@+id/textView4"
+            app:layout_constraintEnd_toStartOf="@+id/textView2"
+            app:layout_constraintStart_toEndOf="@+id/textView4"
+            app:layout_constraintTop_toTopOf="@+id/textView4"
+            app:layout_constraintVertical_bias="0.0" />
+
+    <TextView
+            android:id="@+id/textView4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="24dp"
+            android:layout_marginBottom="24dp"
+            android:fontFamily="@font/bahnschrift"
+            android:text="Estimasi :"
+            android:textColor="@color/black"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/estimasijam"
+            app:layout_constraintStart_toEndOf="@+id/problemTV"
+            app:layout_constraintTop_toBottomOf="@+id/hitungrp" />
+
+    <TextView
+            android:id="@+id/textView2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/bahnschrift"
+            android:text="Jam"
+            android:textColor="@color/black"
+            app:layout_constraintBottom_toBottomOf="@+id/estimasijam"
+            app:layout_constraintEnd_toStartOf="@+id/estimasimenit"
+            app:layout_constraintStart_toEndOf="@+id/estimasijam"
+            app:layout_constraintTop_toTopOf="@+id/estimasijam"
+            app:layout_constraintVertical_bias="0.0" />
+
+    <TextView
+            android:id="@+id/textView3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:layout_marginBottom="24dp"
+            android:fontFamily="@font/bahnschrift"
+            android:text="Menit"
+            android:textColor="@color/black"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toEndOf="@+id/estimasimenit"
+            app:layout_constraintTop_toTopOf="@+id/estimasimenit"
+            app:layout_constraintVertical_bias="0.0" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

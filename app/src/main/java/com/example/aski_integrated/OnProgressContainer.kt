@@ -1,35 +1,34 @@
 package com.example.aski_integrated
 
-
 class OnProgressContainer {
 
-    var mMold: String? = null
+    var mMc: String? = null
     var mProblem: String? = null
     var mTimestamp: Long? = null
     var mRepairTimestamp: Long? = null
     var mKey:String? = null
-    var mTechnicianRepaira:String? = null
-    var mTechnicianRepairb:String? = null
-    var mTechnicianRepairc:String? = null
-    var mTechnicianRepaird:String? = null
+    var mIssuedby:String? = null
 
+    constructor() {
 
-
-    constructor(timestamp: Long?,repairtimestamp: Long?, mold: String?,
-                problem: String?, key: String?,techniciana: String?, technicianb: String?,
-                technicianc: String?, techniciand: String?) {
-        this.mTimestamp = timestamp
-        this.mRepairTimestamp = repairtimestamp
-        this.mMold = mold
-        this.mProblem = problem
-        this.mKey = key
-        this.mTechnicianRepaira = techniciana
-        this.mTechnicianRepairb = technicianb
-        this.mTechnicianRepairc = technicianc
-        this.mTechnicianRepaird = techniciand
     }
 
+    constructor(timestamp: Long?,repairtimestamp: Long?, mc: String?, problem: String?, key: String?,issuedby: String?) {
+        this.mTimestamp = timestamp
+        this.mRepairTimestamp = repairtimestamp
+        this.mMc = mc
+        this.mProblem = problem
+        this.mKey = key
+        this.mIssuedby = issuedby
+    }
 
+    fun getIssuedby(): String? {
+        return mIssuedby
+    }
+
+    fun setIssuedby(issuedby: String?) {
+        mIssuedby = issuedby
+    }
 
     fun getKey(): String? {
         return mKey
@@ -39,13 +38,12 @@ class OnProgressContainer {
         mKey = key
     }
 
-
-    fun getMold(): String? {
-        return mMold
+    fun getMc(): String? {
+        return mMc
     }
 
-    fun setMold(mold: String?) {
-        mMold = mold
+    fun setMc(mc: String?) {
+        mMc = mc
     }
 
     fun getProblem(): String? {

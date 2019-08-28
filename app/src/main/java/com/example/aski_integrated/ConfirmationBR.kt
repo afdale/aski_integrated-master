@@ -11,6 +11,7 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.database.FirebaseDatabase
+import java.lang.Exception
 
 class ConfirmationBR : AppCompatActivity() {
 
@@ -28,7 +29,7 @@ class ConfirmationBR : AppCompatActivity() {
     private  var jenisproblem:String? = null
     private  var estimasi:String? = null
     private  var start:String? = null
-    lateinit var perbaikan:String
+    private var perbaikan:String? = null
     private lateinit var kunci:String
 
     lateinit var finishProgressBTNrp: ImageButton
@@ -92,13 +93,6 @@ class ConfirmationBR : AppCompatActivity() {
 
         estconf.text = estimasi.toString()
 
-
-        finishProgressBTNrp.setOnClickListener {
-            Douploadreport(this).execute()
-            finish()
-        }
-
-
     }
 
     fun goCancelProgress(view: View){
@@ -106,21 +100,9 @@ class ConfirmationBR : AppCompatActivity() {
     }
 
     fun goFinishProgress(view: View){
-        val launch4 = Intent(this, BreakdownAdapter::class.java)
-        launch4.putExtra("asal","onprogress")
-        launch4.putExtra("key",kunci)
-        launch4.putExtra("mold", nomold)
-        launch4.putExtra("tech1", tech1)
-        launch4.putExtra("tech2", tech2)
-        launch4.putExtra("tech3", tech3)
-        launch4.putExtra("tech4", tech4)
-        launch4.putExtra("analisa", analisa)
-        launch4.putExtra("problem", problem)
-        launch4.putExtra("jenisproblem", jenisproblem)
-        launch4.putExtra("estimasi", estimasi)
-        launch4.putExtra("start", start)
-        launch4.putExtra("perbaikan", perbaikan)
-        startActivity(launch4)
+
+        perbaikan = perbaikanETconf.text.toString()
+        Douploadreport(this).execute()
         finish()
     }
 
@@ -146,29 +128,26 @@ class ConfirmationBR : AppCompatActivity() {
                     val query = "INSERT INTO breakdown (mold,tech1,tech2,tech3,tech4,analisa, problem,jenisproblem,estimasi,start,perbaikan) VALUES ('$nomold','$tech1','$tech2','$tech3','$tech4','$analisa','$problem','$jenisproblem','$estimasi','$start','$perbaikan')"
                     val stmt = con.createStatement()
                     stmt.executeUpdate(query)
-
+                    z = "Upload successfull"
+                    isSuccess = true
                 }
-
             } catch (ex: Exception) {
-
-
+                isSuccess = false
+                z = "ERROR : $ex"
             }
             return z
         }
 
         override fun onPostExecute(s: String) {
-            //setDialog(false)
-
             dialog.dismiss()
             Toast.makeText(this@ConfirmationBR, "" + z, Toast.LENGTH_LONG).show()
 
             if(isSuccess)
             {
                 FirebaseDatabase.getInstance().getReference().child("breakdown").child("onprogress")
-                    .child("REPAIRING").child(kunci).removeValue()
+                    .child("REPAIRING").removeValue()
                 this@ConfirmationBR.finish()
             }
-            //progressDialog.hide()
         }
     }
 }

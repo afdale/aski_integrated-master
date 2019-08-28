@@ -8,17 +8,19 @@
         tools:context=".MainActivity">
 
     <TextView
-            android:text="Panggilan belum direspon"
-            android:fontFamily="@font/bahnschrift"
-            android:textColor="@color/black"
+            android:id="@+id/judul1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/judul1"
-            app:layout_constraintStart_toStartOf="parent" app:layout_constraintHorizontal_bias="0.5"
+            android:layout_marginTop="8dp"
+            android:fontFamily="@font/bahnschrift"
+            android:text="Panggilan belum direspon"
+            android:textColor="@color/black"
+            android:textSize="24sp"
+            android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
-            android:textStyle="bold" android:textSize="24sp"
-            app:layout_constraintTop_toTopOf="parent"
-            android:layout_marginTop="16dp"/>
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
     <TextView
             android:text="On progress repair"
             android:textColor="@color/black"
@@ -43,41 +45,56 @@
             app:layout_constraintStart_toStartOf="parent" app:layout_constraintHorizontal_bias="0.496"
             app:layout_constraintTop_toBottomOf="@+id/linearLayout2"
     />
+
     <LinearLayout
-            android:orientation="vertical"
+            android:id="@+id/linearLayout"
             android:layout_width="match_parent"
-            android:layout_height="75dp"
-            app:layout_constraintTop_toBottomOf="@+id/judul1" app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent" android:id="@+id/linearLayout"
-            app:layout_constraintBottom_toTopOf="@+id/judul" app:layout_constraintVertical_bias="0.0">
-        <ListView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content" android:id="@+id/alv"/>
-    </LinearLayout>
-    <LinearLayout
+            android:layout_height="175dp"
             android:orientation="vertical"
-            android:layout_width="match_parent"
-            android:layout_height="75dp"
-            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBottom_toTopOf="@+id/judul"
             app:layout_constraintEnd_toEndOf="parent"
-            android:id="@+id/linearLayout2"
-            app:layout_constraintTop_toBottomOf="@+id/judul" app:layout_constraintBottom_toTopOf="@+id/judul2"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/judul1"
             app:layout_constraintVertical_bias="0.0">
+
         <ListView
+                android:id="@+id/alv"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" android:id="@+id/oplv"/>
+                android:layout_height="wrap_content" />
     </LinearLayout>
+
     <LinearLayout
-            android:orientation="vertical"
+            android:id="@+id/linearLayout2"
             android:layout_width="match_parent"
-            android:layout_height="75dp"
-            app:layout_constraintStart_toStartOf="parent"
+            android:layout_height="175dp"
+            android:orientation="vertical"
+            app:layout_constraintBottom_toTopOf="@+id/judul2"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/judul2"
-            app:layout_constraintHorizontal_bias="1.0" app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintVertical_bias="0.0" android:id="@+id/linearLayout3" android:layout_marginBottom="32dp">
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/judul"
+            app:layout_constraintVertical_bias="0.0">
+
         <ListView
+                android:id="@+id/oplv"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent" android:id="@+id/wclv"/>
+                android:layout_height="wrap_content" />
+    </LinearLayout>
+
+    <LinearLayout
+            android:id="@+id/linearLayout3"
+            android:layout_width="match_parent"
+            android:layout_height="175dp"
+            android:orientation="vertical"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/judul2"
+            app:layout_constraintVertical_bias="0.0">
+
+        <ListView
+                android:id="@+id/wclv"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,8 +1,6 @@
-/*
 package com.example.aski_integrated
 
 import android.app.Dialog
-import android.content.Intent
 import android.os.AsyncTask
 import android.os.Bundle
 import android.view.View
@@ -12,44 +10,39 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.database.FirebaseDatabase
+import java.lang.Exception
 
 class ConfirmationPL : AppCompatActivity() {
-
     lateinit var connectionClass: ConnectionClass
 
     private var asal:String?  = null
     private var nomold:String?  = null
-    private  var tech1:String? = null
-    private  var tech2:String? = null
-    private  var tech3:String? = null
-    private  var tech4:String? = null
-
-    private  var analisa:String? = null
-    private  var problem:String? = null
-    private  var jenisproblem:String? = null
-    private  var estimasi:String? = null
-    private  var start:String? = null
-    lateinit var perbaikan:String
+    private var tech1:String? = null
+    private var tech2:String? = null
+    private var tech3:String? = null
+    private var tech4:String? = null
+    private var analisa:String? = null
+    private var problem:String? = null
+    private var jenisproblem:String? = null
+    private var estimasi:String? = null
+    private var start:String? = null
+    private var perbaikan:String? = null
     private lateinit var kunci:String
 
     lateinit var finishProgressBTNrp: ImageButton
-
     private lateinit var nomoldconf: TextView
     private lateinit var tech1conf: TextView
     private lateinit var tech2conf: TextView
     private lateinit var tech3conf: TextView
     private lateinit var tech4conf: TextView
-
     private lateinit var analisaconf: TextView
     private lateinit var problemconf: TextView
-
     private lateinit var jenisproblemconf: TextView
     private lateinit var estconf: TextView
     private lateinit var perbaikanETconf: EditText
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
         setContentView(R.layout.activity_confirmation)
 
         nomoldconf = findViewById<TextView>(R.id.nomoldconf)
@@ -62,10 +55,8 @@ class ConfirmationPL : AppCompatActivity() {
         analisaconf = findViewById<TextView>(R.id.analisaconf)
         perbaikanETconf = findViewById<EditText>(R.id.perbaikanETconf)
         jenisproblemconf = findViewById<TextView>(R.id.jenisproblemconf)
-
         connectionClass = ConnectionClass()
         finishProgressBTNrp = findViewById<ImageButton>(R.id.finishProgressBTNrp)
-
 
         kunci = getIntent().getStringExtra("key")
         asal = getIntent().getStringExtra("asal")
@@ -74,7 +65,6 @@ class ConfirmationPL : AppCompatActivity() {
         tech2 = getIntent().getStringExtra("tech2")
         tech3 = getIntent().getStringExtra("tech3")
         tech4 = getIntent().getStringExtra("tech4")
-
         analisa = getIntent().getStringExtra("analisa")
         problem = getIntent().getStringExtra("problem")
         jenisproblem = getIntent().getStringExtra("jenisproblem")
@@ -87,21 +77,10 @@ class ConfirmationPL : AppCompatActivity() {
         tech2conf.text = tech2
         tech3conf.text = tech3
         tech4conf.text = tech4
-
         analisaconf.text = analisa
-
         problemconf.text = problem
         jenisproblemconf.text = jenisproblem
-
         estconf.text = estimasi
-
-
-        finishProgressBTNrp.setOnClickListener {
-            Douploadreport(this).execute()
-            finish()
-        }
-
-
     }
 
     fun goCancelProgress(view: View){
@@ -109,23 +88,9 @@ class ConfirmationPL : AppCompatActivity() {
     }
 
     fun goFinishProgress(view: View){
-        val launch4 = Intent(this, PlanningAdapter::class.java)
-        launch4.putExtra("asal","onprogress")
-        launch4.putExtra("key",kunci)
-        launch4.putExtra("mold", nomold)
-        launch4.putExtra("tech1", tech1)
-        launch4.putExtra("tech2", tech2)
-        launch4.putExtra("tech3", tech3)
-        launch4.putExtra("tech4", tech4)
+       perbaikan = perbaikanETconf.text.toString()
 
-        launch4.putExtra("analisa", analisa)
-        launch4.putExtra("problem", problem)
-        launch4.putExtra("jenisproblem", jenisproblem)
-        launch4.putExtra("start", estimasi)
-        launch4.putExtra("estimasi", estimasi)
-        launch4.putExtra("start", start)
-        launch4.putExtra("perbaikan", perbaikan)
-        startActivity(launch4)
+        Douploadreport(this).execute()
         finish()
     }
 
@@ -148,32 +113,30 @@ class ConfirmationPL : AppCompatActivity() {
                 if (con == null) {
                     z = "Please check your internet connection"
                 } else {
-                    val query = "INSERT INTO PLeakdown (mold,tech1,tech2,tech3,tech4,analisa, problem,jenisproblem,estimasi,start,perbaikan) VALUES ('$nomold','$tech1','$tech2','$tech3','$tech4','$analisa','$problem','$jenisproblem','$estimasi','$start','$perbaikan')"
+                    val query = "INSERT INTO planning (mold,tech1,tech2,tech3,tech4,analisa, problem,jenisproblem,estimasi,start,perbaikan) VALUES ('$nomold','$tech1','$tech2','$tech3','$tech4','$analisa','$problem','$jenisproblem','$estimasi','$start','$perbaikan')"
+                    //sql server String query = "insert into planing (mold,tech1,tech2,tech3,tech4,analisa, problem,jenisproblem,estimasi,start,perbaikan)
+                    // values ('" + mold + "','" + tech1 + "','" + tech2 + "','" + tech3 + "','" + tech4+ "','" + analisa + "','" + problem + "','" + jenisproblem + "','" + estimasi + "','" + start + "','" + perbaikan + "')";
                     val stmt = con.createStatement()
                     stmt.executeUpdate(query)
-
+                    z = "Upload successfull"
+                    isSuccess = true
                 }
-
             } catch (ex: Exception) {
-
-
+                isSuccess = false
+                z = "ERROR : $ex"
             }
             return z
         }
 
         override fun onPostExecute(s: String) {
-            //setDialog(false)
-
             dialog.dismiss()
             Toast.makeText(this@ConfirmationPL, "" + z, Toast.LENGTH_LONG).show()
-
             if(isSuccess)
             {
-                FirebaseDatabase.getInstance().getReference().child("PLeakdown").child("onprogress")
+                FirebaseDatabase.getInstance().getReference().child("planning").child("onprogress")
                     .child("REPAIRING").child(kunci).removeValue()
                 this@ConfirmationPL.finish()
             }
-            //progressDialog.hide()
         }
     }
-}*/
+}

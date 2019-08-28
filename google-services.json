@@ -1,34 +1,71 @@
 {
   "project_info": {
-    "project_number": "442881751756",
-    "firebase_url": "https://aski-moldshop.firebaseio.com",
-    "project_id": "aski-moldshop",
-    "storage_bucket": "aski-moldshop.appspot.com"
+    "project_number": "271583063764",
+    "firebase_url": "https://askishopfloormoldshop.firebaseio.com",
+    "project_id": "askishopfloormoldshop",
+    "storage_bucket": "askishopfloormoldshop.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:442881751756:android:70437657be2f10df",
+        "mobilesdk_app_id": "1:271583063764:android:0e1abf27d5738d82",
         "android_client_info": {
-          "package_name": "com.example.aski_integrated"
+          "package_name": "com.aski.industrialrevolution.askishopfloormanagement"
         }
       },
       "oauth_client": [
         {
-          "client_id": "442881751756-ihd8mtkv85dtnp6t8jbobqvm73nfkjdf.apps.googleusercontent.com",
+          "client_id": "271583063764-eufmn6avbm0ev0n3guo4j5v25bvbsepg.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.aski.industrialrevolution.askishopfloormanagement",
+            "certificate_hash": "051d50c5c1eb4a8eb2bfc49dc9116cd5b0f52182"
+          }
+        },
+        {
+          "client_id": "271583063764-c5qrt5jb7glq1k6qslf8lfqsqvljrkvg.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyCXdmHfQ2qbVpIXLkn0yrZMa-99fIcjYAw"
+          "current_key": "AIzaSyDtuzSf9-Ubgx5fNNbhZlyb2A5PU6-jQ6k"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "442881751756-ihd8mtkv85dtnp6t8jbobqvm73nfkjdf.apps.googleusercontent.com",
+              "client_id": "271583063764-c5qrt5jb7glq1k6qslf8lfqsqvljrkvg.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:271583063764:android:70437657be2f10df",
+        "android_client_info": {
+          "package_name": "com.example.aski_integrated"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "271583063764-c5qrt5jb7glq1k6qslf8lfqsqvljrkvg.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDtuzSf9-Ubgx5fNNbhZlyb2A5PU6-jQ6k"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "271583063764-c5qrt5jb7glq1k6qslf8lfqsqvljrkvg.apps.googleusercontent.com",
               "client_type": 3
             }
           ]
