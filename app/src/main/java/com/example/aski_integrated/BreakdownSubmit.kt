@@ -17,7 +17,6 @@ import kotlinx.android.synthetic.main.formsubmit.*
 class BreakdownSubmit : AppCompatActivity() {
     lateinit var ref: DatabaseReference
 
-    //val database = FirebaseDatabase.getInstance()
     private var btnmold: ImageButton? = null
     private var btntech1: ImageButton? = null
     private var btntech2: ImageButton? = null
@@ -53,33 +52,27 @@ class BreakdownSubmit : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.formsubmit)
-        //val database = FirebaseDatabase.getInstance()
         ref = FirebaseDatabase.getInstance().getReference().child("breakdown").child("onprogress")
             .child("REPAIRING")
 
         btnfinish = findViewById<ImageButton>(R.id.finishProgressBTNrp)
-
         btnmold = findViewById<ImageButton>(R.id.scanmoldrp)
-
         btntech1 = findViewById<ImageButton>(R.id.scantech1)
         btntech2 = findViewById<ImageButton>(R.id.scantech2)
         btntech3 = findViewById<ImageButton>(R.id.scantech3)
         btntech4 = findViewById<ImageButton>(R.id.scantech4)
 
         nomold = findViewById<TextView>(R.id.nomoldrpTV)
-
         technician1 = findViewById<TextView>(R.id.tech1rp)
         technician2 = findViewById<TextView>(R.id.tech2rp)
         technician3 = findViewById<TextView>(R.id.tech3rp)
         technician4 = findViewById<TextView>(R.id.tech4rp)
         //estimasi = findViewById<TextView>(R.id.estimasiTV)
-
         problem = findViewById<EditText>(R.id.problemETrp)
         analisa = findViewById<EditText>(R.id.analisarp)
         jenisproblem = findViewById<EditText>(R.id.jenisProblemETrp)
         estimasi_jam = findViewById<EditText>(R.id.estimasi_jamET)
         estimasi_menit = findViewById<EditText>(R.id.estimasi_menitET)
-
 
         nomold.text = mold
         technician1.text = tech1
@@ -170,7 +163,6 @@ class BreakdownSubmit : AppCompatActivity() {
 
             Toast.makeText(this, "$totalestimasi", Toast.LENGTH_LONG).show()
 
-
             ref.child(moldId).child("key").setValue(moldId)
             ref.child(moldId).child("mold").setValue(mold)
             ref.child(moldId).child("tech1").setValue(tech1)
@@ -237,7 +229,6 @@ class BreakdownSubmit : AppCompatActivity() {
     fun DoUpload() {
         val launch4 = Intent(this, BarcodeScannerActivity::class.java)
         launch4.putExtra("asal", asal)
-        //launch4.putExtra("mc2",myMC)
         try {
             startActivity(launch4)
         } catch (ex: Exception) {
@@ -297,21 +288,3 @@ class BreakdownSubmit : AppCompatActivity() {
     }
 
 }
-
-        /*
-        if (estimasiwkt!="Estimasi Waktu"&&mold!="No. Mold"&&tech1!="Isi ID Teknisi") {
-            var jam: Long = 0
-            var menit: Long = 0
-            var totalwaktu: Long = 0
-
-            jam = estimasiwkt.substringBefore(":").toLong() * 3600000
-            menit = estimasiwkt.substringAfter(":").toLong() * 60000
-
-            totalwaktu = jam + menit
-
-            Toast.makeText(this, "$totalwaktu", Toast.LENGTH_LONG).show()
-        }else {
-            Toast.makeText(this, "Silahkan Lengkapi Form", Toast.LENGTH_LONG).show()
-        }
-        */
-

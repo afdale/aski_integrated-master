@@ -1,4 +1,3 @@
-/*
 package com.example.aski_integrated
 
 import android.app.Activity
@@ -17,8 +16,6 @@ import kotlinx.android.synthetic.main.formsubmit.*
 
 class ImprovementSubmit : AppCompatActivity() {
     lateinit var ref: DatabaseReference
-
-    //val database = FirebaseDatabase.getInstance()
     private var btnmold: ImageButton? = null
     private var btntech1: ImageButton? = null
     private var btntech2: ImageButton? = null
@@ -33,7 +30,6 @@ class ImprovementSubmit : AppCompatActivity() {
     lateinit var technician4: TextView
     //lateinit var estimasi: TextView
     //var estimasiwkt: String = "Estimasi Waktu"
-
 
     lateinit var problem: EditText
     lateinit var analisa: EditText
@@ -59,16 +55,12 @@ class ImprovementSubmit : AppCompatActivity() {
             .child("REPAIRING")
 
         btnfinish = findViewById<ImageButton>(R.id.finishProgressBTNrp)
-
         btnmold = findViewById<ImageButton>(R.id.scanmoldrp)
-
         btntech1 = findViewById<ImageButton>(R.id.scantech1)
         btntech2 = findViewById<ImageButton>(R.id.scantech2)
         btntech3 = findViewById<ImageButton>(R.id.scantech3)
         btntech4 = findViewById<ImageButton>(R.id.scantech4)
-
         nomold = findViewById<TextView>(R.id.nomoldrpTV)
-
         technician1 = findViewById<TextView>(R.id.tech1rp)
         technician2 = findViewById<TextView>(R.id.tech2rp)
         technician3 = findViewById<TextView>(R.id.tech3rp)
@@ -81,14 +73,12 @@ class ImprovementSubmit : AppCompatActivity() {
         estimasi_jam = findViewById<EditText>(R.id.estimasi_jamET)
         estimasi_menit = findViewById<EditText>(R.id.estimasi_menitET)
 
-
         nomold.text = mold
         technician1.text = tech1
         technician2.text = tech2
         technician3.text = tech3
         technician4.text = tech4
 
-*/
 /*
         val estimasiBTN = findViewById<ImageButton>(R.id.estimasiBTN)
         val estimasiTV = findViewById<TextView>(R.id.estimasiTV)
@@ -107,10 +97,7 @@ class ImprovementSubmit : AppCompatActivity() {
                 cal.get(Calendar.MINUTE),
                 true
             ).show()
-        }
-        *//*
-
-
+        }*/
 
         btnmold!!.setOnClickListener {
             val intent = Intent(this@ImprovementSubmit, BarcodeScannerActivity::class.java)
@@ -140,7 +127,7 @@ class ImprovementSubmit : AppCompatActivity() {
         btnfinish!!.setOnClickListener {
             savedata()
 
-            val intent = Intent(this, BreakdownAdapter::class.java)
+            val intent = Intent(this, ImprovementAdapter::class.java)
             startActivity(intent)
         }
     }
@@ -300,24 +287,3 @@ class ImprovementSubmit : AppCompatActivity() {
     }
 
 }
-
-*/
-/*
-if (estimasiwkt!="Estimasi Waktu"&&mold!="No. Mold"&&tech1!="Isi ID Teknisi") {
-    var jam: Long = 0
-    var menit: Long = 0
-    var totalwaktu: Long = 0
-
-    jam = estimasiwkt.substringBefore(":").toLong() * 3600000
-    menit = estimasiwkt.substringAfter(":").toLong() * 60000
-
-    totalwaktu = jam + menit
-
-    Toast.makeText(this, "$totalwaktu", Toast.LENGTH_LONG).show()
-}else {
-    Toast.makeText(this, "Silahkan Lengkapi Form", Toast.LENGTH_LONG).show()
-}
-*//*
-
-
-*/

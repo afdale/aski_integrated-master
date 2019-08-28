@@ -4,7 +4,6 @@ class Mold (var mold : String, var start: Long, var tech1: String, var tech2: St
 
     constructor() : this("", 0,"", "" ,"","","", "","",0,"",0,0) {
 
-//"", "", "", "", ""
 
     }
 }

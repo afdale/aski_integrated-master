@@ -48,14 +48,11 @@ class FormAndon : AppCompatActivity() {
         kunci = getIntent().getStringExtra("key")
         start = getIntent().getLongExtra("start",0)
         start_repair = getIntent().getLongExtra("start_repair",0)
-
         timestamprepair = start_repair!!
         val selisihgmtrepair:Long = System.currentTimeMillis() - SystemClock.elapsedRealtime()
         wakturepairsaatini = timestamprepair!! - selisihgmtrepair
-
         waktuRepairCMeter.base = wakturepairsaatini!!
         waktuRepairCMeter.start()
-
         nomcrp.text = mold
         problemET.setText(problem)
         issuedPICTV.text = issuedby

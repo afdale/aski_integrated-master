@@ -1,6 +1,4 @@
-/*
 package com.example.aski_integrated
-
 
 import android.os.Bundle
 import android.os.SystemClock
@@ -15,14 +13,14 @@ class OnProgressActivity: AppCompatActivity() {
     var wakturepairsaatini:Long? = null
     var timestamprepair:Long? = null
 
-    private lateinit var asal:String
-    private lateinit var mold:String
-    private lateinit var problem:String
-    private lateinit var techniciana:String
-    private lateinit var technicianb:String
-    private lateinit var technicianc:String
-    private lateinit var techniciand:String
-    private lateinit var kunci:String
+    private  var asal:String? = null
+    private  var mold:String? = null
+    private  var problem:String? = null
+    private  var techniciana:String? = null
+    private  var technicianb:String? = null
+    private  var technicianc:String? = null
+    private  var techniciand:String? = null
+    private  var kunci:String? = null
     private var start :Long? = null
     private var start_repair :Long? = null
 
@@ -36,12 +34,11 @@ class OnProgressActivity: AppCompatActivity() {
     private lateinit var perbaikanET: EditText
     private lateinit var jenisProblemET: EditText
 
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.formandon)
 
-        noMold = findViewById<TextView>(R.id.nomcrpTV)
+        noMold = findViewById<TextView>(R.id.nomcdpTV)
         techa = findViewById<TextView>(R.id.techa)
         techb = findViewById<TextView>(R.id.techb)
         techc = findViewById<TextView>(R.id.techc)
@@ -81,7 +78,4 @@ class OnProgressActivity: AppCompatActivity() {
     fun goCancelProgress(view: View){
         finish()
     }
-
-
 }
-*/

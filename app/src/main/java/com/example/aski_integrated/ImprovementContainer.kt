@@ -1,4 +1,3 @@
-/*
 package com.example.aski_integrated
 
 class ImprovementContainer {
@@ -17,7 +16,8 @@ class ImprovementContainer {
     var mestimasijam:Long? = null
     var mestimasimenit:Long? = null
 
-    constructor( mnomold :String?,start: Long?, key:String?, tech1: String?, tech2: String?, tech3: String?, tech4: String?,analisa: String?,problem: String?, jenisproblem: String?, estimasi: Long?, estimasijam: Long?, estimasimenit: Long?)
+
+    constructor( mnomold :String?, tech1: String?, tech2: String?, tech3: String?, tech4: String?,analisa: String?,problem: String?, jenisproblem: String?, estimasi: Long?, estimasijam: Long?, estimasimenit: Long?,start: Long?, key:String?)
 
     {
         this.mnomold = mnomold
@@ -137,7 +137,6 @@ class ImprovementContainer {
         mnomold = mnomold
     }
 
-
     fun getAnalisaimp(): String? {
         return mAnalisaimp
     }
@@ -146,4 +145,4 @@ class ImprovementContainer {
         mAnalisaimp = analisaimp
     }
 
-}*/
+}

@@ -28,15 +28,15 @@ class MainActivity : AppCompatActivity() {
                 startActivity(Intent(this, BreakdownAdapter::class.java))
             }
 
-             /* planning = findViewById(R.id.planning)
+            planning = findViewById(R.id.planning)
             planning.setOnClickListener {
             startActivity(Intent(this, PlanningAdapter::class.java))
-        }*/
+        }
 
-      /*  improvement = findViewById(R.id.improvement)
+        improvement = findViewById(R.id.improvement)
         improvement.setOnClickListener {
             startActivity(Intent(this, ImprovementAdapter::class.java))
-        }*/
+        }
 
         }catch (ex:Exception){
             Toast.makeText(this, "$ex", Toast.LENGTH_LONG).show()

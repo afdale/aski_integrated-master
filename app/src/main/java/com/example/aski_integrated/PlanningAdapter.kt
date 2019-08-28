@@ -1,5 +1,5 @@
-/*
 package com.example.aski_integrated
+
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
@@ -15,7 +15,6 @@ import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
 import java.util.*
 
-
 class PlanningAdapter: AppCompatActivity() {
 
     lateinit var submit: ImageButton
@@ -25,11 +24,9 @@ class PlanningAdapter: AppCompatActivity() {
     var totalestimasi:Long? = null
     var waktu:Long? = null
 
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.onprogress_submit)
-
 
         submit = findViewById<ImageButton>(R.id.submit)
         submit.setOnClickListener {
@@ -40,24 +37,20 @@ class PlanningAdapter: AppCompatActivity() {
             val onprogressListView = findViewById<ListView>(R.id.onpro)
             listOnprogressAdapter = ListOnprogressAdapter(this, listOnProgress)
 
-
             onprogressListView.adapter = listOnprogressAdapter
             onprogressListView.setOnItemClickListener { parent, view, position, id ->
                 val launch4 = Intent(this, ConfirmationPL::class.java)
                 launch4.putExtra("asal", "onprogress")
+                launch4.putExtra("mold", listOnProgress[position].mnomold)
                 launch4.putExtra("tech1", listOnProgress[position].mtech1)
                 launch4.putExtra("tech2", listOnProgress[position].mtech2)
                 launch4.putExtra("tech3", listOnProgress[position].mtech3)
                 launch4.putExtra("tech4", listOnProgress[position].mtech4)
-                launch4.putExtra("mold", listOnProgress[position].mnomold)
                 launch4.putExtra("problem", listOnProgress[position].mProblemETpl)
                 launch4.putExtra("jenisproblem", listOnProgress[position].mjenisProblemETpl)
-                launch4.putExtra("analisa", listOnProgress[position].mAnalisapl)
                 launch4.putExtra("start", listOnProgress[position].mstart)
                 launch4.putExtra("estimasi", listOnProgress[position].estimasipl)
                 launch4.putExtra("key", listOnProgress[position].mKeypl)
-
-
                 startActivity(launch4)
             }
         }catch (ex:Exception){
@@ -65,11 +58,10 @@ class PlanningAdapter: AppCompatActivity() {
         }
     }
 
-
     override fun onResume() {
         super.onResume()
         try {
-            FirebaseDatabase.getInstance().getReference().child("improvement").child("onprogress")
+            FirebaseDatabase.getInstance().getReference().child("planning").child("onprogress")
                 .child("REPAIRING")
                 .addValueEventListener(object : ValueEventListener {
                     override fun onCancelled(p0: DatabaseError) {
@@ -80,19 +72,19 @@ class PlanningAdapter: AppCompatActivity() {
                         try {
                             for (key in p0.children) {
                                 val a = key.child("mold").getValue(String::class.java)
-                                val b = key.child("start").getValue(Long::class.java)
-                                val c = key.child("tech1").getValue(String::class.java)
-                                val d = key.child("tech2").getValue(String::class.java)
-                                val e = key.child("tech3").getValue(String::class.java)
-                                val f = key.child("tech4").getValue(String::class.java)
+                                val b = key.child("tech1").getValue(String::class.java)
+                                val c = key.child("tech2").getValue(String::class.java)
+                                val d = key.child("tech3").getValue(String::class.java)
+                                val e = key.child("tech4").getValue(String::class.java)
+                                val f = key.child("analisa").getValue(String::class.java)
                                 val g = key.child("problem").getValue(String::class.java)
-                                val h = key.child("analisa").getValue(String::class.java)
-                                val i = key.child("jenisproblem").getValue(String::class.java)
-                                val j = key.child("key").getValue(String::class.java)
-                                val k = key.child("estimasi").getValue(Long::class.java)
+                                val h = key.child("jenisproblem").getValue(String::class.java)
+                                val i = key.child("estimasi").getValue(Long::class.java)
+                                val j = key.child("start").getValue(Long::class.java)
+                                val k = key.child("key").getValue(String::class.java)
 
 
-
+//constructor( mnomold :String?, tech1: String?, tech2: String?, tech3: String?, tech4: String?,analisa: String?,problem: String?, jenisproblem: String?, estimasi: Long?,start: Long?, key:String?)
                                 listOnProgress.add(PlanningContainer(a,b,c,d,e,f,g,h,i,j,k))
 
                                 Log.i("Datasnapshot", "Datasnapshot : " + key.toString())
@@ -181,7 +173,7 @@ class PlanningAdapter: AppCompatActivity() {
         val nomoldrpTV: TextView
         val problemTV: TextView
         val hitungrp: Chronometer
-        val estimasiadapter : TextView
+        //val estimasiadapter : TextView
 
         init {
             this.nomoldrpTV = view?.findViewById<TextView>(R.id.nomoldrpTV) as TextView
@@ -192,4 +184,3 @@ class PlanningAdapter: AppCompatActivity() {
     }
 
 }
-*/

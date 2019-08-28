@@ -91,7 +91,6 @@ class BarcodeScannerActivity : AppCompatActivity(), ZXingScannerView.ResultHandl
 
         else
         {
-
             mScannerView!!.resumeCameraPreview(this)
         }
     }

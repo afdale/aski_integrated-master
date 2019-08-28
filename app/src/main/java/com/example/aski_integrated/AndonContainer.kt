@@ -2,62 +2,30 @@ package com.example.aski_integrated
 
 class AndonContainer {
 
-
-    var mMold: String? = null
+    var mMc: String? = null
     var mProblem: String? = null
     var mTimestamp: Long? = null
     var mKey:String? = null
-    var mTechnicianRepaira:String? = null
-    var mTechnicianRepairb:String? = null
-    var mTechnicianRepairc:String? = null
-    var mTechnicianRepaird:String? = null
+    var mIssuedby:String? = null
 
     constructor() {
     }
 
-    constructor(timestamp: Long?, mold: String?, problem: String?,
-                key: String?,techniciana: String?, technicianb: String?, technicianc: String?, techniciand: String?) {
+    constructor(timestamp: Long?, mc: String?, problem: String?, key: String?,issuedby: String?) {
         this.mTimestamp = timestamp
-        this.mMold = mold
+        this.mMc = mc
         this.mProblem = problem
         this.mKey = key
-        this.mTechnicianRepaira = techniciana
-        this.mTechnicianRepairb = technicianb
-        this.mTechnicianRepairc = technicianc
-        this.mTechnicianRepaird = techniciand
+        this.mIssuedby = issuedby
     }
 
-    fun getTechnicianRepaira(): String? {
-        return mTechnicianRepaira
+    fun getIssuedby(): String? {
+        return mIssuedby
     }
 
-    fun setTechnicianRepaira(technicianrepaira: String?) {
-        mTechnicianRepaira = technicianrepaira
+    fun setIssuedby(issuedby: String?) {
+        mIssuedby = issuedby
     }
-
-    fun getTechnicianRepairb(): String? {
-        return mTechnicianRepairb
-    }
-
-    fun setTechnicianRepairb(technicianrepairb: String?) {
-        mTechnicianRepairb = technicianrepairb
-    }
-    fun getTechnicianRepairc(): String? {
-        return mTechnicianRepairc
-    }
-
-    fun setTechnicianRepairc(technicianrepairc: String?) {
-        mTechnicianRepairc = technicianrepairc
-    }
-
-    fun getTechnicianRepaird(): String? {
-        return mTechnicianRepaird
-    }
-
-    fun setTechnicianRepaird(technicianrepaird: String?) {
-        mTechnicianRepaird = technicianrepaird
-    }
-
 
     fun getKey(): String? {
         return mKey
@@ -67,13 +35,12 @@ class AndonContainer {
         mKey = key
     }
 
-
-    fun getmold(): String? {
-        return mMold
+    fun getMc(): String? {
+        return mMc
     }
 
-    fun setmold(mold: String?) {
-        mMold = mold
+    fun setMc(mc: String?) {
+        mMc = mc
     }
 
     fun getProblem(): String? {

@@ -1,5 +1,5 @@
-
 package com.example.aski_integrated
+
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
@@ -57,8 +57,6 @@ class BreakdownAdapter: AppCompatActivity() {
                 launch4.putExtra("key", listOnProgress[position].mKeybr)
                 launch4.putExtra("estimasijam", listOnProgress[position].mestimasijam)
                 launch4.putExtra("estimasimenit", listOnProgress[position].mestimasimenit)
-
-
                 startActivity(launch4)
             }
         }catch (ex:Exception){
@@ -85,18 +83,14 @@ class BreakdownAdapter: AppCompatActivity() {
                                 val c = key.child("tech2").getValue(String::class.java)
                                 val d = key.child("tech3").getValue(String::class.java)
                                 val e = key.child("tech4").getValue(String::class.java)
-                                val f = key.child("problem").getValue(String::class.java)
                                 val g = key.child("analisa").getValue(String::class.java)
+                                val f = key.child("problem").getValue(String::class.java)
                                 val h = key.child("jenisproblem").getValue(String::class.java)
                                 val i = key.child("estimasi").getValue(Long::class.java)
+                                val m = key.child("start").getValue(Long::class.java)
                                 val j = key.child("estimasijam").getValue(Long::class.java)
                                 val k = key.child("estimasimenit").getValue(Long::class.java)
                                 val l = key.child("key").getValue(String::class.java)
-                                val m = key.child("start").getValue(Long::class.java)
-
-
-
-
 
                                 listOnProgress.add(BreakdownContainer(a,b,c,d,e,f,g,h,i,j,k,l,m))
 

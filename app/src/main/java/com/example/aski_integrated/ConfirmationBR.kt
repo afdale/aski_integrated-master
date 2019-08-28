@@ -28,7 +28,7 @@ class ConfirmationBR : AppCompatActivity() {
     private  var jenisproblem:String? = null
     private  var estimasi:String? = null
     private  var start:String? = null
-    lateinit var perbaikan:String
+    private var perbaikan:String? = null
     private lateinit var kunci:String
 
     lateinit var finishProgressBTNrp: ImageButton
@@ -92,13 +92,6 @@ class ConfirmationBR : AppCompatActivity() {
 
         estconf.text = estimasi.toString()
 
-
-        finishProgressBTNrp.setOnClickListener {
-            Douploadreport(this).execute()
-            finish()
-        }
-
-
     }
 
     fun goCancelProgress(view: View){
@@ -106,21 +99,9 @@ class ConfirmationBR : AppCompatActivity() {
     }
 
     fun goFinishProgress(view: View){
-        val launch4 = Intent(this, BreakdownAdapter::class.java)
-        launch4.putExtra("asal","onprogress")
-        launch4.putExtra("key",kunci)
-        launch4.putExtra("mold", nomold)
-        launch4.putExtra("tech1", tech1)
-        launch4.putExtra("tech2", tech2)
-        launch4.putExtra("tech3", tech3)
-        launch4.putExtra("tech4", tech4)
-        launch4.putExtra("analisa", analisa)
-        launch4.putExtra("problem", problem)
-        launch4.putExtra("jenisproblem", jenisproblem)
-        launch4.putExtra("estimasi", estimasi)
-        launch4.putExtra("start", start)
-        launch4.putExtra("perbaikan", perbaikan)
-        startActivity(launch4)
+
+        perbaikan = perbaikanETconf.text.toString()
+        Douploadreport(this).execute()
         finish()
     }
 
@@ -157,8 +138,6 @@ class ConfirmationBR : AppCompatActivity() {
         }
 
         override fun onPostExecute(s: String) {
-            //setDialog(false)
-
             dialog.dismiss()
             Toast.makeText(this@ConfirmationBR, "" + z, Toast.LENGTH_LONG).show()
 
@@ -168,7 +147,6 @@ class ConfirmationBR : AppCompatActivity() {
                     .child("REPAIRING").child(kunci).removeValue()
                 this@ConfirmationBR.finish()
             }
-            //progressDialog.hide()
         }
     }
 }

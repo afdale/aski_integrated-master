@@ -1,4 +1,3 @@
-/*
 package com.example.aski_integrated
 
 import android.content.Context
@@ -45,14 +44,16 @@ class ImprovementAdapter: AppCompatActivity() {
             onprogressListView.setOnItemClickListener { parent, view, position, id ->
                 val launch4 = Intent(this, ConfirmationIMP::class.java)
                 launch4.putExtra("asal", "onprogress")
+
+                launch4.putExtra("mold", listOnProgress[position].mnomold)
                 launch4.putExtra("tech1", listOnProgress[position].mtech1)
                 launch4.putExtra("tech2", listOnProgress[position].mtech2)
                 launch4.putExtra("tech3", listOnProgress[position].mtech3)
                 launch4.putExtra("tech4", listOnProgress[position].mtech4)
-                launch4.putExtra("mold", listOnProgress[position].mnomold)
+
+                launch4.putExtra("analisa", listOnProgress[position].mAnalisaimp)
                 launch4.putExtra("problem", listOnProgress[position].mProblemETimp)
                 launch4.putExtra("jenisproblem", listOnProgress[position].mjenisProblemETimp)
-                launch4.putExtra("analisa", listOnProgress[position].mAnalisaimp)
                 launch4.putExtra("start", listOnProgress[position].mstart)
                 launch4.putExtra("estimasi", listOnProgress[position].estimasiimp)
                 launch4.putExtra("key", listOnProgress[position].mKeyimp)
@@ -82,20 +83,22 @@ class ImprovementAdapter: AppCompatActivity() {
                         try {
                             for (key in p0.children) {
                                 val a = key.child("mold").getValue(String::class.java)
-                                val b = key.child("start").getValue(Long::class.java)
-                                val c = key.child("tech1").getValue(String::class.java)
-                                val d = key.child("tech2").getValue(String::class.java)
-                                val e = key.child("tech3").getValue(String::class.java)
-                                val f = key.child("tech4").getValue(String::class.java)
+                                val b = key.child("tech1").getValue(String::class.java)
+                                val c = key.child("tech2").getValue(String::class.java)
+                                val d = key.child("tech3").getValue(String::class.java)
+                                val e = key.child("tech4").getValue(String::class.java)
+
+                                val f = key.child("analisa").getValue(String::class.java)
                                 val g = key.child("problem").getValue(String::class.java)
-                                val h = key.child("analisa").getValue(String::class.java)
-                                val i = key.child("jenisproblem").getValue(String::class.java)
-                                val j = key.child("key").getValue(String::class.java)
-                                val k = key.child("estimasi").getValue(Long::class.java)
-                                val l = key.child("estimasijam").getValue(Long::class.java)
-                                val m = key.child("estimasimenit").getValue(Long::class.java)
+                                val h = key.child("jenisproblem").getValue(String::class.java)
+                                val i = key.child("estimasi").getValue(Long::class.java)
+                                val j = key.child("estimasijam").getValue(Long::class.java)
+                                val k = key.child("estimasimenit").getValue(Long::class.java)
 
+                                val l = key.child("start").getValue(Long::class.java)
 
+                                val m = key.child("key").getValue(String::class.java)
+// mnomold :String?, tech1: String?, tech2: String?, tech3: String?, tech4: String?,analisa: String?,problem: String?, jenisproblem: String?, estimasi: Long?, estimasijam: Long?, estimasimenit: Long?,start: Long?, key:String?)
 
                                 listOnProgress.add(ImprovementContainer(a,b,c,d,e,f,g,h,i,j,k,l,m))
 
@@ -201,4 +204,3 @@ class ImprovementAdapter: AppCompatActivity() {
 }
 
 
-*/
