@@ -38,7 +38,9 @@ class MainActivity : AppCompatActivity() {
             startActivity(Intent(this, ImprovementAdapter::class.java))
         }
 
-        }catch (ex:Exception){
+        }
+
+        catch (ex:Exception){
             Toast.makeText(this, "$ex", Toast.LENGTH_LONG).show()
         }
 

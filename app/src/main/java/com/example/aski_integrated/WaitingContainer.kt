@@ -1,10 +1,8 @@
 package com.example.aski_integrated
 
-class WaitingContainer {
-<<<<<<< HEAD
 
-=======
->>>>>>> ff9e8ff41cf574c5585b922b7e7156a9c134b26c
+class WaitingContainer {
+
     var mMc: String? = null
     var mProblem: String? = null
     var mTimestamp: Long? = null
@@ -16,13 +14,10 @@ class WaitingContainer {
     var mJenisproblem:String? = null
     var mFinishRepairTimestamp: Long? = null
 
-<<<<<<< HEAD
     constructor() {
 
     }
 
-=======
->>>>>>> ff9e8ff41cf574c5585b922b7e7156a9c134b26c
     constructor(finishrepairtimestamp: Long?,timestamp: Long?,repairtimestamp: Long?, mc: String?, problem: String?, key: String?,issuedby: String?,jenisproblem: String?,perbaikan: String?,pic: String?) {
         this.mTimestamp = timestamp
         this.mRepairTimestamp = repairtimestamp
@@ -115,4 +110,7 @@ class WaitingContainer {
     fun setPi(pic: String?) {
         mPic = pic
     }
+
+
+
 }
