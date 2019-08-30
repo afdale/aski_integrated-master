@@ -145,6 +145,7 @@ class ConfirmationIMP : AppCompatActivity() {
             {
                 FirebaseDatabase.getInstance().getReference().child("improvement").child("onprogress")
                     .child("REPAIRING").child(kunci).removeValue()
+
                 this@ConfirmationIMP.finish()
             }
     }
