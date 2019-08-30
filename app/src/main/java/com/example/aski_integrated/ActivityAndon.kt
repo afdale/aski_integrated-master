@@ -40,7 +40,6 @@ class ActivityAndon : AppCompatActivity() {
 
 
         try {
-            //himbauanTV = findViewById<TextView>(R.id.himbauanTV)
             val problemListView = findViewById<ListView>(R.id.alv)
             val onprogressListView = findViewById<ListView>(R.id.oplv)
             val waitingListView = findViewById<ListView>(R.id.wclv)
@@ -103,7 +102,7 @@ class ActivityAndon : AppCompatActivity() {
     override fun onResume() {
         super.onResume()
         try {
-            FirebaseDatabase.getInstance().getReference().child("andon").child("PE")
+            FirebaseDatabase.getInstance().getReference().child("andon").child("MS")
                 .addValueEventListener(object: ValueEventListener {
                     override fun onCancelled(p0: DatabaseError) {
                     }
@@ -135,7 +134,7 @@ class ActivityAndon : AppCompatActivity() {
 
                 })
 
-            FirebaseDatabase.getInstance().getReference().child("andon").child("onprogress").child("PE")
+            FirebaseDatabase.getInstance().getReference().child("andon").child("onprogress").child("MS")
                 .addValueEventListener(object: ValueEventListener {
                     override fun onCancelled(p0: DatabaseError) {
                     }
@@ -167,7 +166,7 @@ class ActivityAndon : AppCompatActivity() {
 
                 })
 
-            FirebaseDatabase.getInstance().getReference().child("andon").child("waiting").child("PE")
+            FirebaseDatabase.getInstance().getReference().child("andon").child("waiting").child("MS")
                 .addValueEventListener(object: ValueEventListener {
                     override fun onCancelled(p0: DatabaseError) {
                     }

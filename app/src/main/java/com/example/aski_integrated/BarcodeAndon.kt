@@ -116,13 +116,13 @@ class BarcodeAndon : AppCompatActivity(), ZXingScannerView.ResultHandler {
 
             FirebaseDatabase.getInstance().getReference().child("andonswitch").setValue(1)
             FirebaseDatabase.getInstance().getReference().child("buzzer").setValue(1)
-            FirebaseDatabase.getInstance().getReference().child("andon").child("onprogress").child("PE").child(kunci).child("key").setValue(kunci)
-            FirebaseDatabase.getInstance().getReference().child("andon").child("onprogress").child("PE").child(kunci).child("start_repair").setValue(ServerValue.TIMESTAMP)
-            FirebaseDatabase.getInstance().getReference().child("andon").child("onprogress").child("PE").child(kunci).child("start").setValue(start)
-            FirebaseDatabase.getInstance().getReference().child("andon").child("onprogress").child("PE").child(kunci).child("mc").setValue(mc)
-            FirebaseDatabase.getInstance().getReference().child("andon").child("onprogress").child("PE").child(kunci).child("problem").setValue(problem)
-            FirebaseDatabase.getInstance().getReference().child("andon").child("onprogress").child("PE").child(kunci).child("issuedby").setValue(issuedby)
-            FirebaseDatabase.getInstance().getReference().child("andon").child("PE").child(kunci).removeValue()
+            FirebaseDatabase.getInstance().getReference().child("andon").child("onprogress").child("MS").child(kunci).child("key").setValue(kunci)
+            FirebaseDatabase.getInstance().getReference().child("andon").child("onprogress").child("MS").child(kunci).child("start_repair").setValue(ServerValue.TIMESTAMP)
+            FirebaseDatabase.getInstance().getReference().child("andon").child("onprogress").child("MS").child(kunci).child("start").setValue(start)
+            FirebaseDatabase.getInstance().getReference().child("andon").child("onprogress").child("MS").child(kunci).child("mc").setValue(mc)
+            FirebaseDatabase.getInstance().getReference().child("andon").child("onprogress").child("MS").child(kunci).child("problem").setValue(problem)
+            FirebaseDatabase.getInstance().getReference().child("andon").child("onprogress").child("MS").child(kunci).child("issuedby").setValue(issuedby)
+            FirebaseDatabase.getInstance().getReference().child("andon").child("MS").child(kunci).removeValue()
                 .addOnSuccessListener {
                     z = "Terima kasih, Anda telah menjawab panggilan di MC $mc."
                 }.addOnFailureListener {
@@ -150,17 +150,17 @@ class BarcodeAndon : AppCompatActivity(), ZXingScannerView.ResultHandler {
             dialog.setCancelable(false)
             dialog.show()
 
-            FirebaseDatabase.getInstance().getReference().child("andon").child("waiting").child("PE").child(kunci).child("key").setValue(kunci)
-            FirebaseDatabase.getInstance().getReference().child("andon").child("waiting").child("PE").child(kunci).child("finish_repair").setValue(ServerValue.TIMESTAMP)
-            FirebaseDatabase.getInstance().getReference().child("andon").child("waiting").child("PE").child(kunci).child("start_repair").setValue(start_repair)
-            FirebaseDatabase.getInstance().getReference().child("andon").child("waiting").child("PE").child(kunci).child("start").setValue(start)
-            FirebaseDatabase.getInstance().getReference().child("andon").child("waiting").child("PE").child(kunci).child("mc").setValue(mc)
-            FirebaseDatabase.getInstance().getReference().child("andon").child("waiting").child("PE").child(kunci).child("problem").setValue(problem)
-            FirebaseDatabase.getInstance().getReference().child("andon").child("waiting").child("PE").child(kunci).child("perbaikan").setValue(perbaikan)
-            FirebaseDatabase.getInstance().getReference().child("andon").child("waiting").child("PE").child(kunci).child("jenisproblem").setValue(jenisproblem)
-            FirebaseDatabase.getInstance().getReference().child("andon").child("waiting").child("PE").child(kunci).child("issuedby").setValue(issuedby)
-            FirebaseDatabase.getInstance().getReference().child("andon").child("waiting").child("PE").child(kunci).child("pic").setValue(dataidcard)
-            FirebaseDatabase.getInstance().getReference().child("andon").child("onprogress").child("PE").child(kunci).removeValue()
+            FirebaseDatabase.getInstance().getReference().child("andon").child("waiting").child("MS").child(kunci).child("key").setValue(kunci)
+            FirebaseDatabase.getInstance().getReference().child("andon").child("waiting").child("MS").child(kunci).child("finish_repair").setValue(ServerValue.TIMESTAMP)
+            FirebaseDatabase.getInstance().getReference().child("andon").child("waiting").child("MS").child(kunci).child("start_repair").setValue(start_repair)
+            FirebaseDatabase.getInstance().getReference().child("andon").child("waiting").child("MS").child(kunci).child("start").setValue(start)
+            FirebaseDatabase.getInstance().getReference().child("andon").child("waiting").child("MS").child(kunci).child("mc").setValue(mc)
+            FirebaseDatabase.getInstance().getReference().child("andon").child("waiting").child("MS").child(kunci).child("problem").setValue(problem)
+            FirebaseDatabase.getInstance().getReference().child("andon").child("waiting").child("MS").child(kunci).child("perbaikan").setValue(perbaikan)
+            FirebaseDatabase.getInstance().getReference().child("andon").child("waiting").child("MS").child(kunci).child("jenisproblem").setValue(jenisproblem)
+            FirebaseDatabase.getInstance().getReference().child("andon").child("waiting").child("MS").child(kunci).child("issuedby").setValue(issuedby)
+            FirebaseDatabase.getInstance().getReference().child("andon").child("waiting").child("MS").child(kunci).child("pic").setValue(dataidcard)
+            FirebaseDatabase.getInstance().getReference().child("andon").child("onprogress").child("MS").child(kunci).removeValue()
                 .addOnSuccessListener {
                     z = "Terima kasih, Anda telah menyelesaikan panggilan di MC $mc. Harap menunggu konfirmasi dari $issuedby."
                 }.addOnFailureListener {
@@ -253,8 +253,8 @@ class BarcodeAndon : AppCompatActivity(), ZXingScannerView.ResultHandler {
                     val linesaatini = mc.substringAfter("LINE ").substringBefore(" STATION")
                     val station = mc.substringAfterLast("STATION ")
                     //val query = "INSERT INTO checksheetpainting(kunci,date,shift,timestamp,mp_id,line,cat_expired,rawpart_visual,loading_hangerdansubjig,waping_solvent,waping_lap,settingroom1_temp,airblow1_airpressure,matic_undercoat_balancingangin,matic_undercoat_settinggun_atomize,matic_undercoat_settinggun_pattern,matic_undercoat_settinggun_paint,settingroom2_temp,matic_topcoat_balancingangin,matic_topcoat_settinggun_atomize,matic_topcoat_settinggun_pattern,matic_topcoat_settinggun_paint,settingroom3_temp,bakingoven_temp) VALUES ($key,$datetimedata,$shift,$timestamp,'$mpid','$line','$maticcat','$maticrawpart','$matichanger','$maticwapingsolvent','$maticwapinglap',$maticsettingtemp1,$maticairpress1,'$bamatic1','$maticsettingatomize1','$maticsettingpattern1','$maticsettingpaint1',$maticsettingtemp2,'$bamatic2','$maticsettingatomize2','$maticsettingpattern2','$maticsettingpaint2',$maticsettingtemp3,$maticoventemp)"
-                    val query2 = "INSERT INTO andon(start_andon,start_repair,finish_repair,closed_by_op,dept,no_mc,line,station,problem,jenis_problem,perbaikan,issued_by,pic) VALUES ($start,$start_repair,$finish_repair,${System.currentTimeMillis()},'PE','$mc','$linesaatini','$station','$problem','$jenisproblem','$perbaikan','$issuedby','$pic')"
-                    val query = "INSERT INTO pe(start_andon,start_repair,finish_repair,closed_by_op,dept,no_mc,problem,jenis_problem,perbaikan,issued_by,pic) VALUES ($start,$start_repair,$finish_repair,${System.currentTimeMillis()},'PE','$mc','$problem','$jenisproblem','$perbaikan','$issuedby','$pic')"
+                    val query2 = "INSERT INTO andon(start_andon,start_repair,finish_repair,closed_by_op,dept,no_mc,line,station,problem,jenis_problem,perbaikan,issued_by,pic) VALUES ($start,$start_repair,$finish_repair,${System.currentTimeMillis()},'MS','$mc','$linesaatini','$station','$problem','$jenisproblem','$perbaikan','$issuedby','$pic')"
+                    val query = "INSERT INTO pe(start_andon,start_repair,finish_repair,closed_by_op,dept,no_mc,problem,jenis_problem,perbaikan,issued_by,pic) VALUES ($start,$start_repair,$finish_repair,${System.currentTimeMillis()},'MS','$mc','$problem','$jenisproblem','$perbaikan','$issuedby','$pic')"
                     val stmt = con.createStatement()
                     stmt.executeUpdate(query)
                     stmt.executeUpdate(query2)
@@ -277,7 +277,7 @@ class BarcodeAndon : AppCompatActivity(), ZXingScannerView.ResultHandler {
 
             if(isSuccess)
             {
-                FirebaseDatabase.getInstance().getReference().child("andon").child("waiting").child("PE").child(kunci).removeValue()
+                FirebaseDatabase.getInstance().getReference().child("andon").child("waiting").child("MS").child(kunci).removeValue()
                 this@BarcodeAndon.finish()
             }
             //progressDialog.hide()
