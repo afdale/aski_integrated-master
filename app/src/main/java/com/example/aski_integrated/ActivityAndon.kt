@@ -414,7 +414,6 @@ class ActivityAndon : AppCompatActivity() {
         val problemTV: TextView
         val hitung: Chronometer
 
-
         init {
             this.mcTV = view?.findViewById<TextView>(R.id.noMCTV) as TextView
             this.problemTV = view.findViewById<TextView>(R.id.problemTV) as TextView

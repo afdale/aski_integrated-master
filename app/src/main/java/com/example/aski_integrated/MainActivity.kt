@@ -6,7 +6,6 @@ import android.widget.ImageButton
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 
-
 class MainActivity : AppCompatActivity() {
 
     private lateinit var panggilanandon: ImageButton
@@ -38,13 +37,9 @@ class MainActivity : AppCompatActivity() {
             startActivity(Intent(this, ImprovementAdapter::class.java))
         }
 
-        }
-
-        catch (ex:Exception){
+        }catch (ex:Exception){
             Toast.makeText(this, "$ex", Toast.LENGTH_LONG).show()
         }
-
-
     }
 }
 
