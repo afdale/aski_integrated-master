@@ -69,7 +69,7 @@ class OnProgressActivity : AppCompatActivity() {
 
     fun goFinishProgress(view: View){
 
-        val launch4 = Intent(this, BarcodeScannerActivity::class.java)
+        val launch4 = Intent(this, BarcodeAndon::class.java)
         launch4.putExtra("asal","onprogress")
         launch4.putExtra("mc", mc)
         launch4.putExtra("problem", problem)

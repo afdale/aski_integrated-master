@@ -40,6 +40,7 @@ class ActivityAndon : AppCompatActivity() {
 
 
         try {
+            //himbauanTV = findViewById<TextView>(R.id.himbauanTV)
             val problemListView = findViewById<ListView>(R.id.alv)
             val onprogressListView = findViewById<ListView>(R.id.oplv)
             val waitingListView = findViewById<ListView>(R.id.wclv)
@@ -413,7 +414,7 @@ class ActivityAndon : AppCompatActivity() {
 
 
         init {
-            this.mcTV = view?.findViewById<TextView>(R.id.noMCTV) as TextView
+            this.mcTV = view?.findViewById<TextView>(R.id.mcTV) as TextView
             this.problemTV = view.findViewById<TextView>(R.id.problemTV) as TextView
             this.hitung = view.findViewById<Chronometer>(R.id.hitung) as Chronometer
         }

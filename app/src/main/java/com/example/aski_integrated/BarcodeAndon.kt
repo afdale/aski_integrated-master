@@ -139,6 +139,8 @@ class BarcodeAndon : AppCompatActivity(), ZXingScannerView.ResultHandler {
             startActivity(launch4)*/
 
         }
+
+
         if (asal=="onprogress"&&rawResult.getText().contains("ID",false))
         {
             val dataidcard = rawResult.getText().substringAfter("FN:").substringBefore("\n")
