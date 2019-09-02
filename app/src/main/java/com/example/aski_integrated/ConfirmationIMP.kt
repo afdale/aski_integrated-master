@@ -106,7 +106,7 @@ class ConfirmationIMP : AppCompatActivity() {
         btnTesting  = findViewById<RadioButton>(R.id.btnTesting)
         btnFinish  = findViewById<RadioButton>(R.id.btnFinish)
         btnUpdate  = findViewById<ImageButton>(R.id.btnUpdate)
-        ref = FirebaseDatabase.getInstance().getReference().child("breakdown").child("onprogress")
+        ref = FirebaseDatabase.getInstance().getReference().child("improvement").child("onprogress")
             .child("REPAIRING")
 
         btnUpdate!!.setOnClickListener {
