@@ -16,6 +16,7 @@ class BreakdownContainer {
     var mstart: Long? = null
     var mestimasijam: Long? = null
     var mestimasimenit: Long? = null
+    var valueprogressbr: Int? = null
 
     constructor(
         mnomold: String?,
@@ -30,7 +31,9 @@ class BreakdownContainer {
         estimasijam: Long?,
         estimasimenit: Long?,
         key: String?,
-        start: Long?
+        start: Long?,
+        valueprogress: Int?
+
     ) {
         this.mnomold = mnomold
         this.mKeybr = key
@@ -45,6 +48,7 @@ class BreakdownContainer {
         this.mstart = start
         this.mestimasijam = estimasijam
         this.mestimasimenit = estimasimenit
+        this.valueprogressbr = valueprogress
     }
 
     fun getemstart(): Long? {
@@ -158,5 +162,15 @@ class BreakdownContainer {
 
     fun setAnalisabr(analisabr: String?) {
         mAnalisabr = analisabr
+    }
+
+
+    fun getValueprogress(): Int? {
+        return valueprogressbr
+    }
+
+
+    fun setValueprogress(valueprogress: Int?) {
+        valueprogressbr = valueprogress
     }
 }

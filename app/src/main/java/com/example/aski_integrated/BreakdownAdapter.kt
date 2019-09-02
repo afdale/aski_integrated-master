@@ -14,10 +14,17 @@ import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
 import java.util.*
+import android.widget.ProgressBar
+import androidx.core.app.ComponentActivity.ExtraData
+import androidx.core.content.ContextCompat.getSystemService
+import android.icu.lang.UCharacter.GraphemeClusterBreak.T
+import kotlinx.android.synthetic.main.analisa_adapter.*
+
 
 class BreakdownAdapter: AppCompatActivity() {
 
     lateinit var submit: ImageButton
+
     private var listOnProgress = ArrayList<BreakdownContainer>()
     private lateinit var listOnprogressAdapter: BaseAdapter
 
@@ -31,9 +38,13 @@ class BreakdownAdapter: AppCompatActivity() {
 
 
         submit = findViewById<ImageButton>(R.id.submit)
+
         submit.setOnClickListener {
+
             val intent = Intent(this, BreakdownSubmit::class.java)
             startActivity(intent)
+            //displaypProgressBar.visibility = View.VISIBLE
+
         }
         try {
             val onprogressListView = findViewById<ListView>(R.id.onpro)
@@ -57,6 +68,7 @@ class BreakdownAdapter: AppCompatActivity() {
                 launch4.putExtra("key", listOnProgress[position].mKeybr)
                 launch4.putExtra("estimasijam", listOnProgress[position].mestimasijam)
                 launch4.putExtra("estimasimenit", listOnProgress[position].mestimasimenit)
+                launch4.putExtra("valueprogress",listOnProgress[position].valueprogressbr)
                 startActivity(launch4)
             }
         }catch (ex:Exception){
@@ -91,8 +103,9 @@ class BreakdownAdapter: AppCompatActivity() {
                                 val j = key.child("estimasijam").getValue(Long::class.java)
                                 val k = key.child("estimasimenit").getValue(Long::class.java)
                                 val l = key.child("key").getValue(String::class.java)
+                                val n = key.child("valueprogress").getValue(Int::class.java)
 
-                                listOnProgress.add(BreakdownContainer(a,b,c,d,e,f,g,h,i,j,k,l,m))
+                                listOnProgress.add(BreakdownContainer(a,b,c,d,e,f,g,h,i,j,k,l,m,n))
 
                                 Log.i("Datasnapshot", "Datasnapshot : " + key.toString())
                                 Log.i("kata f ", f.toString())
@@ -139,23 +152,42 @@ class BreakdownAdapter: AppCompatActivity() {
                 }
 
 
-                vh.nomoldrpTV.text = listProblemOnprogress[position].mnomold
-                vh.problemTV.text = listProblemOnprogress[position].mProblemETbr
-                vh.estimasijam.text = listProblemOnprogress[position].mestimasijam.toString()
-                vh.estimasimenit.text = listProblemOnprogress[position].mestimasimenit.toString()
 
-                totalestimasi = listProblemOnprogress[position].mstart
-                //est = listProblemOnprogress[position].estimasibr
+             /*   displaypProgressBar.setMax(100)[position]
+                displaypProgressBar.setProgress(20)*/
+try {
 
-                val selisihgmt:Long = System.currentTimeMillis() - SystemClock.elapsedRealtime()
-                waktu = totalestimasi!! - selisihgmt
+    vh.nomoldrpTV.text = listProblemOnprogress[position].mnomold
+    vh.problemTV.text = listProblemOnprogress[position].mProblemETbr
+    vh.estimasijam.text = listProblemOnprogress[position].mestimasijam.toString()
+    vh.estimasimenit.text = listProblemOnprogress[position].mestimasimenit.toString()
+
+    vh.displayProgressBar.setMax (100)
+    if (listProblemOnprogress[position].valueprogressbr==null){
+        vh.displayProgressBar.setProgress(0)
+    }
+    else if(listProblemOnprogress[position].valueprogressbr!=null){
+        vh.displayProgressBar.setProgress(listProblemOnprogress[position].valueprogressbr!!)
+    }
 
 
-                 Log.i("time","waktu : "+waktu!!.toString())
-                Log.i("time","system millis : "+System.currentTimeMillis().toString())
-                Log.i("time","system clock : "+ SystemClock.elapsedRealtime().toString())
-                vh.hitungrp.base = waktu!!
-                vh.hitungrp.start()
+    totalestimasi = listProblemOnprogress[position].mstart
+    //est = listProblemOnprogress[position].estimasibr
+
+    val selisihgmt:Long = System.currentTimeMillis() - SystemClock.elapsedRealtime()
+    waktu = totalestimasi!! - selisihgmt
+
+
+    Log.i("time","waktu : "+waktu!!.toString())
+    Log.i("time","system millis : "+System.currentTimeMillis().toString())
+    Log.i("time","system clock : "+ SystemClock.elapsedRealtime().toString())
+    vh.hitungrp.base = waktu!!
+    vh.hitungrp.start()
+}catch (ex2:java.lang.Exception){
+    Log.i("error data","$ex2")
+}
+
+
 
                 return view
             }
@@ -183,6 +215,7 @@ class BreakdownAdapter: AppCompatActivity() {
             val hitungrp: Chronometer
             val estimasijam : TextView
             val estimasimenit : TextView
+            val displayProgressBar : ProgressBar
 
             init {
                 this.nomoldrpTV = view?.findViewById<TextView>(R.id.nomoldrpTV) as TextView
@@ -190,6 +223,7 @@ class BreakdownAdapter: AppCompatActivity() {
                 this.hitungrp = view.findViewById<Chronometer>(R.id.hitungrp) as Chronometer
                 this.estimasijam = view.findViewById<TextView>(R.id.estimasijam) as TextView
                 this.estimasimenit = view.findViewById<TextView>(R.id.estimasimenit) as TextView
+                this.displayProgressBar = view.findViewById<ProgressBar>(R.id.progressBar) as ProgressBar
             }
         }
 

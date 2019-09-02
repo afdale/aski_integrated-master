@@ -1,14 +1,10 @@
-
 package com.example.aski_integrated
 
 import android.app.Dialog
 import android.os.AsyncTask
 import android.os.Bundle
 import android.view.View
-import android.widget.EditText
-import android.widget.ImageButton
-import android.widget.TextView
-import android.widget.Toast
+import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.database.FirebaseDatabase
 
@@ -32,7 +28,7 @@ class ConfirmationBR : AppCompatActivity() {
     private lateinit var kunci: String
 
     lateinit var finishProgressBTNrp: ImageButton
-
+    //private lateinit var radiogroup: RadioGroup
     private lateinit var nomoldconf: TextView
     private lateinit var tech1conf: TextView
     private lateinit var tech2conf: TextView

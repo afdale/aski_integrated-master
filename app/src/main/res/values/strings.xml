@@ -11,4 +11,11 @@
     <string name="fcm_message">FCM Message</string>
     <string name="title_activity_mainctivity">Mainctivity</string>
 
+
+    <string name="btnBongkar">Bongkar</string>
+    <string name="btnRepair">Repair</string>
+    <string name="btnAssembly">Assembly</string>
+    <string name="btnTesting">Testing</string>
+    <string name="btnFinish">Finish</string>
+
 </resources>
