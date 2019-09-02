@@ -14,7 +14,7 @@
             android:layout_width="300dp"
             android:layout_height="50dp"
             android:id="@+id/breakdown"
-            app:layout_constraintTop_toBottomOf="@+id/panggilanandon" app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/panggilanandonms" app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintBottom_toTopOf="@+id/planning"/>
     <ImageButton
@@ -45,10 +45,11 @@
             android:layout_width="300dp"
             android:layout_height="50dp"
             app:srcCompat="@drawable/panggilanandon"
-            android:id="@+id/panggilanandon"
+            android:id="@+id/panggilanandonms"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             android:layout_marginTop="150dp"
             app:layout_constraintBottom_toTopOf="@+id/breakdown"/>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

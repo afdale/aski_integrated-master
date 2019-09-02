@@ -128,7 +128,7 @@ class ImprovementSubmit : AppCompatActivity() {
             savedata()
 
             val intent = Intent(this, ImprovementAdapter::class.java)
-            startActivity(intent)
+         finish()
         }
     }
 

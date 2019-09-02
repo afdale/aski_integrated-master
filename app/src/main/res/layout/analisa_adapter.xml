@@ -141,13 +141,16 @@
 
     <ProgressBar
             android:id="@+id/progressBar"
-            style="?android:attr/progressBarStyleHorizontal"
+            style="@android:style/Widget.ProgressBar.Horizontal"
+            android:progressTint="@color/green"
+            android:background="@color/aski"
             android:layout_width="0dp"
-            android:layout_height="18dp"
+            android:layout_height="15dp"
             android:layout_marginStart="32dp"
             android:layout_marginTop="16dp"
             android:layout_marginEnd="32dp"
-
+            android:minHeight="20dp"
+            android:maxHeight="20dp"
             android:layout_marginBottom="16dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -160,3 +163,13 @@
         android:progress="0"-->
 
 </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+
+
+
+
+
+
+

@@ -60,7 +60,7 @@ class ImprovementAdapter: AppCompatActivity() {
                 launch4.putExtra("key", listOnProgress[position].mKeyimp)
                 launch4.putExtra("estimasijam", listOnProgress[position].mestimasijam)
                 launch4.putExtra("estimasimenit", listOnProgress[position].mestimasimenit)
-
+                launch4.putExtra("valueprogress",listOnProgress[position].valueprogressimp)
 
                 startActivity(launch4)
             }
@@ -88,20 +88,18 @@ class ImprovementAdapter: AppCompatActivity() {
                                 val c = key.child("tech2").getValue(String::class.java)
                                 val d = key.child("tech3").getValue(String::class.java)
                                 val e = key.child("tech4").getValue(String::class.java)
-
-                                val f = key.child("analisa").getValue(String::class.java)
-                                val g = key.child("problem").getValue(String::class.java)
+                                val g = key.child("analisa").getValue(String::class.java)
+                                val f = key.child("problem").getValue(String::class.java)
                                 val h = key.child("jenisproblem").getValue(String::class.java)
                                 val i = key.child("estimasi").getValue(Long::class.java)
+                                val m = key.child("start").getValue(Long::class.java)
                                 val j = key.child("estimasijam").getValue(Long::class.java)
                                 val k = key.child("estimasimenit").getValue(Long::class.java)
+                                val l = key.child("key").getValue(String::class.java)
+                                val n = key.child("valueprogress").getValue(Int::class.java)
 
-                                val l = key.child("start").getValue(Long::class.java)
 
-                                val m = key.child("key").getValue(String::class.java)
-// mnomold :String?, tech1: String?, tech2: String?, tech3: String?, tech4: String?,analisa: String?,problem: String?, jenisproblem: String?, estimasi: Long?, estimasijam: Long?, estimasimenit: Long?,start: Long?, key:String?)
-
-                                listOnProgress.add(ImprovementContainer(a,b,c,d,e,f,g,h,i,j,k,l,m))
+                                listOnProgress.add(ImprovementContainer(a,b,c,d,e,f,g,h,i,j,k,l,m,n))
 
                                 Log.i("Datasnapshot", "Datasnapshot : " + key.toString())
                                 Log.i("kata f ", f.toString())
@@ -153,6 +151,14 @@ class ImprovementAdapter: AppCompatActivity() {
             vh.estimasijam.text = listProblemOnprogress[position].mestimasijam.toString()
             vh.estimasimenit.text = listProblemOnprogress[position].mestimasimenit.toString()
 
+            vh.displayProgressBar.setMax (100)
+            if (listProblemOnprogress[position].valueprogressimp==null){
+                vh.displayProgressBar.setProgress(0)
+            }
+            else if(listProblemOnprogress[position].valueprogressimp==null){
+                vh.displayProgressBar.setProgress(listProblemOnprogress[position].valueprogressimp!!)
+            }
+
             totalestimasi = listProblemOnprogress[position].mstart
             //est = listProblemOnprogress[position].estimasiimp
 
@@ -192,6 +198,7 @@ class ImprovementAdapter: AppCompatActivity() {
         val hitungrp: Chronometer
         val estimasijam : TextView
         val estimasimenit : TextView
+        val displayProgressBar : ProgressBar
 
         init {
             this.nomoldrpTV = view?.findViewById<TextView>(R.id.nomoldrpTV) as TextView
@@ -199,8 +206,8 @@ class ImprovementAdapter: AppCompatActivity() {
             this.hitungrp = view.findViewById<Chronometer>(R.id.hitungrp) as Chronometer
             this.estimasijam = view.findViewById<TextView>(R.id.estimasijam) as TextView
             this.estimasimenit = view.findViewById<TextView>(R.id.estimasimenit) as TextView
+            this.displayProgressBar = view.findViewById<ProgressBar>(R.id.progressBar) as ProgressBar
         }
     }
 
 }
-

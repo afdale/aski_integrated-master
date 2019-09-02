@@ -1,16 +1,17 @@
 package com.example.aski_integrated
 
 import android.app.Dialog
+import android.content.Intent
 import android.os.AsyncTask
 import android.os.Bundle
 import android.view.View
 import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
+import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
-import kotlinx.android.synthetic.main.activity_confirmation.*
 
 class ConfirmationBR : AppCompatActivity() {
-
+    lateinit var ref: DatabaseReference
     lateinit var connectionClass: ConnectionClass
 
     private var asal: String? = null
@@ -27,9 +28,17 @@ class ConfirmationBR : AppCompatActivity() {
     private var start: String? = null
     private var perbaikan: String? = null
     private lateinit var kunci: String
+    private var valueprogress: Int= 0
+
 
     lateinit var finishProgressBTNrp: ImageButton
     private lateinit var radiogroup: RadioGroup
+    private lateinit var btnBongkar: RadioButton
+    private lateinit var btnRepair: RadioButton
+    private lateinit var btnAssembly: RadioButton
+    private lateinit var btnTesting: RadioButton
+    private lateinit var btnFinish: RadioButton
+    private lateinit var btnUpdate: ImageButton
     private lateinit var nomoldconf: TextView
     private lateinit var tech1conf: TextView
     private lateinit var tech2conf: TextView
@@ -47,7 +56,6 @@ class ConfirmationBR : AppCompatActivity() {
         super.onCreate(savedInstanceState)
 
         setContentView(R.layout.activity_confirmation)
-        radiogroup  = findViewById<RadioGroup>(R.id.radiogroupconf)
         nomoldconf = findViewById<TextView>(R.id.nomoldconf)
         tech1conf = findViewById<TextView>(R.id.tech1conf)
         tech2conf = findViewById<TextView>(R.id.tech2conf)
@@ -76,12 +84,12 @@ class ConfirmationBR : AppCompatActivity() {
         estimasi = getIntent().getStringExtra("estimasi")
         start = getIntent().getStringExtra("start")
 
+
         nomoldconf.text = nomold
         tech1conf.text = tech1
         tech2conf.text = tech2
         tech3conf.text = tech3
         tech4conf.text = tech4
-        radiogroupconf.clearCheck()
 
         analisaconf.text = analisa
 
@@ -90,18 +98,51 @@ class ConfirmationBR : AppCompatActivity() {
 
         estconf.text = estimasi.toString()
 
+        radiogroup  = findViewById<RadioGroup>(R.id.radiogroupconf)
+        btnBongkar  = findViewById<RadioButton>(R.id.btnBongkar)
+        btnRepair  = findViewById<RadioButton>(R.id.btnRepair)
+        btnAssembly  = findViewById<RadioButton>(R.id.btnAssembly)
+        btnTesting  = findViewById<RadioButton>(R.id.btnTesting)
+        btnFinish  = findViewById<RadioButton>(R.id.btnFinish)
+        btnUpdate  = findViewById<ImageButton>(R.id.btnUpdate)
+        ref = FirebaseDatabase.getInstance().getReference().child("breakdown").child("onprogress")
+            .child("REPAIRING")
 
-        radiogroupconf.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener){
-            @Override
-            public void onCheckedChanged(RadioGroup group, int checkedId) {
-                RadioButton rb = (RadioButton) group.findViewById(checkedId);
-                if(null!=rb && checkedId > -1){
-                    Toast.makeText(MainActivity.this, rb.getText(), Toast.LENGTH_SHORT).show();
-                }
+        btnUpdate!!.setOnClickListener {
 
+            //Toast.makeText(this, "${radiogroup.checkedRadioButtonId}", Toast.LENGTH_LONG).show()
+            if (radiogroup.checkedRadioButtonId==2131296352){
+                valueprogress = 20
             }
-        })
+            else if (radiogroup.checkedRadioButtonId==2131296354){
+                valueprogress = 40
+            }
+            else if (radiogroup.checkedRadioButtonId==2131296351){
+                valueprogress = 60
+            }
+            else if (radiogroup.checkedRadioButtonId==2131296355){
+                valueprogress = 80
+            }
+            else if (radiogroup.checkedRadioButtonId==2131296353){
+                valueprogress = 100
+            }
+            savedata()
+            Toast.makeText(this, "${valueprogress}", Toast.LENGTH_LONG).show()
+           finish()
+        }
+    }
 
+    private fun savedata() {
+        try {
+
+
+            ref.child(kunci).child("valueprogress").setValue(valueprogress)
+
+            Toast.makeText(this, "Success", Toast.LENGTH_SHORT).show()
+
+
+        } catch (ex: Exception) {
+            Toast.makeText(this, "$ex", Toast.LENGTH_LONG).show()
         }
 
     }

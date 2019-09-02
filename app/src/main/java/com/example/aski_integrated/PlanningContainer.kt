@@ -1,24 +1,44 @@
 package com.example.aski_integrated
 
 class PlanningContainer {
+
+
+
     var mnomold: String? = null
-    var mKeypl:String? = null
-    var mtech1:String? = null
-    var mtech2:String? = null
-    var mtech3:String? = null
-    var mtech4:String? = null
-    var mAnalisapl:String? = null
-    var mProblemETpl:String? = null
-    var mjenisProblemETpl:String? = null
-    var estimasipl:Long? = null
-    var mstart:Long? = null
+    var mKeypl: String? = null
+    var mtech1: String? = null
+    var mtech2: String? = null
+    var mtech3: String? = null
+    var mtech4: String? = null
+    var mAnalisapl: String? = null
+    var mProblemETpl: String? = null
+    var mjenisProblemETpl: String? = null
+    var estimasipl: Long? = null
+    var mstart: Long? = null
+    var mestimasijam: Long? = null
+    var mestimasimenit: Long? = null
+    var valueprogresspl: Int? = null
 
-    constructor( mnomold :String?, tech1: String?, tech2: String?, tech3: String?, tech4: String?,analisa: String?,problem: String?, jenisproblem: String?, estimasi: Long?,start: Long?, key:String?)
+    constructor(
+        mnomold: String?,
+        tech1: String?,
+        tech2: String?,
+        tech3: String?,
+        tech4: String?,
+        analisa: String?,
+        problem: String?,
+        jenisproblem: String?,
+        estimasi: Long?,
+        estimasijam: Long?,
+        estimasimenit: Long?,
+        key: String?,
+        start: Long?,
+        valueprogress: Int?
 
-    {
+    ) {
         this.mnomold = mnomold
         this.mKeypl = key
-        this.mtech1= tech1
+        this.mtech1 = tech1
         this.mtech2 = tech2
         this.mtech3 = tech3
         this.mtech4 = tech4
@@ -27,6 +47,9 @@ class PlanningContainer {
         this.mjenisProblemETpl = jenisproblem
         this.estimasipl = estimasi
         this.mstart = start
+        this.mestimasijam = estimasijam
+        this.mestimasimenit = estimasimenit
+        this.valueprogresspl = valueprogress
     }
 
     fun getemstart(): Long? {
@@ -43,6 +66,22 @@ class PlanningContainer {
 
     fun setestimasipl(estimasi: Long?) {
         estimasipl = estimasi
+    }
+
+    fun getmestimasijam(): Long? {
+        return mestimasijam
+    }
+
+    fun setmestimasijam(estimasijam: Long?) {
+        mestimasijam = estimasijam
+    }
+
+    fun getmestimasimenit(): Long? {
+        return mestimasimenit
+    }
+
+    fun setmestimasimenit(estimasimenit: Long?) {
+        mestimasimenit = estimasimenit
     }
 
     fun getmKeypl(): String? {
@@ -92,6 +131,7 @@ class PlanningContainer {
     fun settech3(tech3: String?) {
         mtech3 = tech3
     }
+
     fun gettech4(): String? {
         return mtech4
     }
@@ -99,6 +139,7 @@ class PlanningContainer {
     fun settech4(tech4: String?) {
         mtech4 = tech4
     }
+
     fun getKeypl(): String? {
         return mKeypl
     }
@@ -124,4 +165,13 @@ class PlanningContainer {
         mAnalisapl = analisapl
     }
 
+
+    fun getValueprogress(): Int? {
+        return valueprogresspl
+    }
+
+
+    fun setValueprogress(valueprogress: Int?) {
+        valueprogresspl = valueprogress
+    }
 }

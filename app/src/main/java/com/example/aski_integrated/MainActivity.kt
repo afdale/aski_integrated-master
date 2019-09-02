@@ -9,7 +9,7 @@ import androidx.appcompat.app.AppCompatActivity
 
 class MainActivity : AppCompatActivity() {
 
-    private lateinit var panggilanandon: ImageButton
+    private lateinit var panggilanandonms: ImageButton
     private lateinit var breakdown: ImageButton
     private lateinit var planning: ImageButton
     private lateinit var improvement: ImageButton
@@ -18,8 +18,8 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         try {
-            panggilanandon = findViewById(R.id.panggilanandon)
-             panggilanandon.setOnClickListener {
+            panggilanandonms = findViewById(R.id.panggilanandonms)
+             panggilanandonms.setOnClickListener {
             startActivity(Intent(this, ActivityAndon::class.java))
         }
 

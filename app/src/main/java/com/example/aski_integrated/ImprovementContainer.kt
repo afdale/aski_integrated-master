@@ -1,29 +1,44 @@
-
 package com.example.aski_integrated
 
 class ImprovementContainer {
 
+
+
     var mnomold: String? = null
-    var mKeyimp:String? = null
-    var mtech1:String? = null
-    var mtech2:String? = null
-    var mtech3:String? = null
-    var mtech4:String? = null
-    var mAnalisaimp:String? = null
-    var mProblemETimp:String? = null
-    var mjenisProblemETimp:String? = null
-    var estimasiimp:Long? = null
-    var mstart:Long? = null
-    var mestimasijam:Long? = null
-    var mestimasimenit:Long? = null
+    var mKeyimp: String? = null
+    var mtech1: String? = null
+    var mtech2: String? = null
+    var mtech3: String? = null
+    var mtech4: String? = null
+    var mAnalisaimp: String? = null
+    var mProblemETimp: String? = null
+    var mjenisProblemETimp: String? = null
+    var estimasiimp: Long? = null
+    var mstart: Long? = null
+    var mestimasijam: Long? = null
+    var mestimasimenit: Long? = null
+    var valueprogressimp: Int? = null
 
+    constructor(
+        mnomold: String?,
+        tech1: String?,
+        tech2: String?,
+        tech3: String?,
+        tech4: String?,
+        analisa: String?,
+        problem: String?,
+        jenisproblem: String?,
+        estimasi: Long?,
+        estimasijam: Long?,
+        estimasimenit: Long?,
+        key: String?,
+        start: Long?,
+        valueprogress: Int?
 
-    constructor( mnomold :String?, tech1: String?, tech2: String?, tech3: String?, tech4: String?,analisa: String?,problem: String?, jenisproblem: String?, estimasi: Long?, estimasijam: Long?, estimasimenit: Long?,start: Long?, key:String?)
-
-    {
+    ) {
         this.mnomold = mnomold
         this.mKeyimp = key
-        this.mtech1= tech1
+        this.mtech1 = tech1
         this.mtech2 = tech2
         this.mtech3 = tech3
         this.mtech4 = tech4
@@ -34,6 +49,7 @@ class ImprovementContainer {
         this.mstart = start
         this.mestimasijam = estimasijam
         this.mestimasimenit = estimasimenit
+        this.valueprogressimp = valueprogress
     }
 
     fun getemstart(): Long? {
@@ -115,6 +131,7 @@ class ImprovementContainer {
     fun settech3(tech3: String?) {
         mtech3 = tech3
     }
+
     fun gettech4(): String? {
         return mtech4
     }
@@ -122,6 +139,7 @@ class ImprovementContainer {
     fun settech4(tech4: String?) {
         mtech4 = tech4
     }
+
     fun getKeyimp(): String? {
         return mKeyimp
     }
@@ -138,6 +156,7 @@ class ImprovementContainer {
         mnomold = mnomold
     }
 
+
     fun getAnalisaimp(): String? {
         return mAnalisaimp
     }
@@ -146,4 +165,13 @@ class ImprovementContainer {
         mAnalisaimp = analisaimp
     }
 
+
+    fun getValueprogress(): Int? {
+        return valueprogressimp
+    }
+
+
+    fun setValueprogress(valueprogress: Int?) {
+        valueprogressimp = valueprogress
+    }
 }

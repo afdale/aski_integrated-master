@@ -475,13 +475,14 @@
 
             <ImageButton
                     android:id="@+id/btnUpdate"
-                    android:layout_width="124dp"
-                    android:layout_height="50dp"
+                    android:layout_width="150dp"
+                    android:layout_height="40dp"
+                    android:background="@drawable/updatebtn"
+                    android:scaleType="fitCenter"
                     app:layout_constraintBottom_toBottomOf="@+id/radiogroupconf"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toEndOf="@+id/radiogroupconf"
-                    app:layout_constraintTop_toBottomOf="@+id/confirmationly"
-                    app:srcCompat="@android:drawable/button_onoff_indicator_on" />
+                    app:layout_constraintTop_toBottomOf="@+id/confirmationly" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>

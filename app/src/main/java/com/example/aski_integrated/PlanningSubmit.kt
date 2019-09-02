@@ -130,7 +130,8 @@ class PlanningSubmit : AppCompatActivity() {
         btnfinish!!.setOnClickListener {
             savedata()
             val intent = Intent(this, PlanningAdapter::class.java)
-            startActivity(intent)
+
+            finish()
         }
     }
 

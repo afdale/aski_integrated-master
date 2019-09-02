@@ -6,35 +6,41 @@ import android.content.Intent
 import android.os.AsyncTask
 import android.os.Bundle
 import android.view.View
-import android.widget.EditText
-import android.widget.ImageButton
-import android.widget.TextView
-import android.widget.Toast
+import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
+import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
 import java.lang.Exception
 
 class ConfirmationIMP : AppCompatActivity() {
-
+    lateinit var ref: DatabaseReference
     lateinit var connectionClass: ConnectionClass
 
-    private var asal:String?  = null
-    private var nomold:String?  = null
-    private  var tech1:String? = null
-    private  var tech2:String? = null
-    private  var tech3:String? = null
-    private  var tech4:String? = null
+    private var asal: String? = null
+    private var nomold: String? = null
+    private var tech1: String? = null
+    private var tech2: String? = null
+    private var tech3: String? = null
+    private var tech4: String? = null
 
-    private  var analisa:String? = null
-    private  var problem:String? = null
-    private  var jenisproblem:String? = null
-    private  var estimasi:String? = null
-    private  var start:String? = null
-    private var perbaikan:String? = null
-    private lateinit var kunci:String
+    private var analisa: String? = null
+    private var problem: String? = null
+    private var jenisproblem: String? = null
+    private var estimasi: String? = null
+    private var start: String? = null
+    private var perbaikan: String? = null
+    private lateinit var kunci: String
+    private var valueprogress: Int= 0
+
 
     lateinit var finishProgressBTNrp: ImageButton
-
+    private lateinit var radiogroup: RadioGroup
+    private lateinit var btnBongkar: RadioButton
+    private lateinit var btnRepair: RadioButton
+    private lateinit var btnAssembly: RadioButton
+    private lateinit var btnTesting: RadioButton
+    private lateinit var btnFinish: RadioButton
+    private lateinit var btnUpdate: ImageButton
     private lateinit var nomoldconf: TextView
     private lateinit var tech1conf: TextView
     private lateinit var tech2conf: TextView
@@ -91,6 +97,54 @@ class ConfirmationIMP : AppCompatActivity() {
         problemconf.text = problem
         jenisproblemconf.text = jenisproblem
         estconf.text = estimasi
+
+
+        radiogroup  = findViewById<RadioGroup>(R.id.radiogroupconf)
+        btnBongkar  = findViewById<RadioButton>(R.id.btnBongkar)
+        btnRepair  = findViewById<RadioButton>(R.id.btnRepair)
+        btnAssembly  = findViewById<RadioButton>(R.id.btnAssembly)
+        btnTesting  = findViewById<RadioButton>(R.id.btnTesting)
+        btnFinish  = findViewById<RadioButton>(R.id.btnFinish)
+        btnUpdate  = findViewById<ImageButton>(R.id.btnUpdate)
+        ref = FirebaseDatabase.getInstance().getReference().child("breakdown").child("onprogress")
+            .child("REPAIRING")
+
+        btnUpdate!!.setOnClickListener {
+
+            //Toast.makeText(this, "${radiogroup.checkedRadioButtonId}", Toast.LENGTH_LONG).show()
+            if (radiogroup.checkedRadioButtonId==2131296352){
+                valueprogress = 20
+            }
+            else if (radiogroup.checkedRadioButtonId==2131296354){
+                valueprogress = 40
+            }
+            else if (radiogroup.checkedRadioButtonId==2131296351){
+                valueprogress = 60
+            }
+            else if (radiogroup.checkedRadioButtonId==2131296355){
+                valueprogress = 80
+            }
+            else if (radiogroup.checkedRadioButtonId==2131296353){
+                valueprogress = 100
+            }
+            savedata()
+            Toast.makeText(this, "${valueprogress}", Toast.LENGTH_LONG).show()
+            finish()
+        }
+    }
+
+    private fun savedata() {
+        try {
+
+
+            ref.child(kunci).child("valueprogress").setValue(valueprogress)
+
+            Toast.makeText(this, "Success", Toast.LENGTH_SHORT).show()
+
+
+        } catch (ex: Exception) {
+            Toast.makeText(this, "$ex", Toast.LENGTH_LONG).show()
+        }
 
     }
 

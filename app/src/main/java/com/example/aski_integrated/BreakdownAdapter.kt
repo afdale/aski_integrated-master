@@ -14,11 +14,6 @@ import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
 import java.util.*
-import android.widget.ProgressBar
-import androidx.core.app.ComponentActivity.ExtraData
-import androidx.core.content.ContextCompat.getSystemService
-import android.icu.lang.UCharacter.GraphemeClusterBreak.T
-import kotlinx.android.synthetic.main.analisa_adapter.*
 
 
 class BreakdownAdapter: AppCompatActivity() {
@@ -128,103 +123,103 @@ class BreakdownAdapter: AppCompatActivity() {
 
     inner class ListOnprogressAdapter : BaseAdapter {
 
-            private var listProblemOnprogress = ArrayList<BreakdownContainer>()
-            private var context: Context? = null
+        private var listProblemOnprogress = ArrayList<BreakdownContainer>()
+        private var context: Context? = null
 
-            constructor(context: Context, listProblemOnprogress: ArrayList<BreakdownContainer>) : super() {
-                this.listProblemOnprogress = listProblemOnprogress
-                this.context = context
+        constructor(context: Context, listProblemOnprogress: ArrayList<BreakdownContainer>) : super() {
+            this.listProblemOnprogress = listProblemOnprogress
+            this.context = context
+        }
+
+        override fun getView(position: Int, convertView: View?, parent: ViewGroup?): View? {
+
+            val view: View
+            val vh: ViewHolder
+
+            if (convertView == null) {
+                view = layoutInflater.inflate(R.layout.analisa_adapter, parent, false)
+                vh = ViewHolder(view)
+                view.tag = vh
+                Log.i("PC", "set Tag for ViewHolder, position: " + position)
+            } else {
+                view = convertView
+                vh = view.tag as ViewHolder
             }
 
-            override fun getView(position: Int, convertView: View?, parent: ViewGroup?): View? {
 
-                val view: View
-                val vh: ViewHolder
 
-                if (convertView == null) {
-                    view = layoutInflater.inflate(R.layout.analisa_adapter, parent, false)
-                    vh = ViewHolder(view)
-                    view.tag = vh
-                    Log.i("PC", "set Tag for ViewHolder, position: " + position)
-                } else {
-                    view = convertView
-                    vh = view.tag as ViewHolder
+            /*   displaypProgressBar.setMax(100)[position]
+               displaypProgressBar.setProgress(20)*/
+            try {
+
+                vh.nomoldrpTV.text = listProblemOnprogress[position].mnomold
+                vh.problemTV.text = listProblemOnprogress[position].mProblemETbr
+                vh.estimasijam.text = listProblemOnprogress[position].mestimasijam.toString()
+                vh.estimasimenit.text = listProblemOnprogress[position].mestimasimenit.toString()
+
+                vh.displayProgressBar.setMax (100)
+                if (listProblemOnprogress[position].valueprogressbr==null){
+                    vh.displayProgressBar.setProgress(0)
+                }
+                else if(listProblemOnprogress[position].valueprogressbr!=null){
+                    vh.displayProgressBar.setProgress(listProblemOnprogress[position].valueprogressbr!!)
                 }
 
 
+                totalestimasi = listProblemOnprogress[position].mstart
+                //est = listProblemOnprogress[position].estimasibr
 
-             /*   displaypProgressBar.setMax(100)[position]
-                displaypProgressBar.setProgress(20)*/
-try {
-
-    vh.nomoldrpTV.text = listProblemOnprogress[position].mnomold
-    vh.problemTV.text = listProblemOnprogress[position].mProblemETbr
-    vh.estimasijam.text = listProblemOnprogress[position].mestimasijam.toString()
-    vh.estimasimenit.text = listProblemOnprogress[position].mestimasimenit.toString()
-
-    vh.displayProgressBar.setMax (100)
-    if (listProblemOnprogress[position].valueprogressbr==null){
-        vh.displayProgressBar.setProgress(0)
-    }
-    else if(listProblemOnprogress[position].valueprogressbr!=null){
-        vh.displayProgressBar.setProgress(listProblemOnprogress[position].valueprogressbr!!)
-    }
+                val selisihgmt:Long = System.currentTimeMillis() - SystemClock.elapsedRealtime()
+                waktu = totalestimasi!! - selisihgmt
 
 
-    totalestimasi = listProblemOnprogress[position].mstart
-    //est = listProblemOnprogress[position].estimasibr
-
-    val selisihgmt:Long = System.currentTimeMillis() - SystemClock.elapsedRealtime()
-    waktu = totalestimasi!! - selisihgmt
-
-
-    Log.i("time","waktu : "+waktu!!.toString())
-    Log.i("time","system millis : "+System.currentTimeMillis().toString())
-    Log.i("time","system clock : "+ SystemClock.elapsedRealtime().toString())
-    vh.hitungrp.base = waktu!!
-    vh.hitungrp.start()
-}catch (ex2:java.lang.Exception){
-    Log.i("error data","$ex2")
-}
-
-
-
-                return view
+                Log.i("time","waktu : "+waktu!!.toString())
+                Log.i("time","system millis : "+System.currentTimeMillis().toString())
+                Log.i("time","system clock : "+ SystemClock.elapsedRealtime().toString())
+                vh.hitungrp.base = waktu!!
+                vh.hitungrp.start()
+            }catch (ex2:java.lang.Exception){
+                Log.i("error data","$ex2")
             }
 
-            override fun getItem(position: Int): Any {
 
-                return listProblemOnprogress[position]
-            }
 
-            override fun getItemId(position: Int): Long {
-
-                return position.toLong()
-            }
-
-            override fun getCount(): Int {
-
-                return listProblemOnprogress.size
-            }
-
+            return view
         }
 
-        private class ViewHolder(view: View?) {
-            val nomoldrpTV: TextView
-            val problemTV: TextView
-            val hitungrp: Chronometer
-            val estimasijam : TextView
-            val estimasimenit : TextView
-            val displayProgressBar : ProgressBar
+        override fun getItem(position: Int): Any {
 
-            init {
-                this.nomoldrpTV = view?.findViewById<TextView>(R.id.nomoldrpTV) as TextView
-                this.problemTV = view.findViewById<TextView>(R.id.problemTV) as TextView
-                this.hitungrp = view.findViewById<Chronometer>(R.id.hitungrp) as Chronometer
-                this.estimasijam = view.findViewById<TextView>(R.id.estimasijam) as TextView
-                this.estimasimenit = view.findViewById<TextView>(R.id.estimasimenit) as TextView
-                this.displayProgressBar = view.findViewById<ProgressBar>(R.id.progressBar) as ProgressBar
-            }
+            return listProblemOnprogress[position]
         }
+
+        override fun getItemId(position: Int): Long {
+
+            return position.toLong()
+        }
+
+        override fun getCount(): Int {
+
+            return listProblemOnprogress.size
+        }
+
+    }
+
+    private class ViewHolder(view: View?) {
+        val nomoldrpTV: TextView
+        val problemTV: TextView
+        val hitungrp: Chronometer
+        val estimasijam : TextView
+        val estimasimenit : TextView
+        val displayProgressBar : ProgressBar
+
+        init {
+            this.nomoldrpTV = view?.findViewById<TextView>(R.id.nomoldrpTV) as TextView
+            this.problemTV = view.findViewById<TextView>(R.id.problemTV) as TextView
+            this.hitungrp = view.findViewById<Chronometer>(R.id.hitungrp) as Chronometer
+            this.estimasijam = view.findViewById<TextView>(R.id.estimasijam) as TextView
+            this.estimasimenit = view.findViewById<TextView>(R.id.estimasimenit) as TextView
+            this.displayProgressBar = view.findViewById<ProgressBar>(R.id.progressBar) as ProgressBar
+        }
+    }
 
 }

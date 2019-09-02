@@ -131,7 +131,8 @@ class BreakdownSubmit : AppCompatActivity() {
             savedata()
 
             val intent = Intent(this, BreakdownAdapter::class.java)
-            startActivity(intent)
+
+            finish()
         }
     }
 

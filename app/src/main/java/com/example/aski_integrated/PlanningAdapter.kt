@@ -51,6 +51,7 @@ class PlanningAdapter: AppCompatActivity() {
                 launch4.putExtra("start", listOnProgress[position].mstart)
                 launch4.putExtra("estimasi", listOnProgress[position].estimasipl)
                 launch4.putExtra("key", listOnProgress[position].mKeypl)
+                launch4.putExtra("valueprogress",listOnProgress[position].valueprogresspl)
                 startActivity(launch4)
             }
         }catch (ex:Exception){
@@ -76,16 +77,18 @@ class PlanningAdapter: AppCompatActivity() {
                                 val c = key.child("tech2").getValue(String::class.java)
                                 val d = key.child("tech3").getValue(String::class.java)
                                 val e = key.child("tech4").getValue(String::class.java)
-                                val f = key.child("analisa").getValue(String::class.java)
-                                val g = key.child("problem").getValue(String::class.java)
+                                val g = key.child("analisa").getValue(String::class.java)
+                                val f = key.child("problem").getValue(String::class.java)
                                 val h = key.child("jenisproblem").getValue(String::class.java)
                                 val i = key.child("estimasi").getValue(Long::class.java)
-                                val j = key.child("start").getValue(Long::class.java)
-                                val k = key.child("key").getValue(String::class.java)
+                                val m = key.child("start").getValue(Long::class.java)
+                                val j = key.child("estimasijam").getValue(Long::class.java)
+                                val k = key.child("estimasimenit").getValue(Long::class.java)
+                                val l = key.child("key").getValue(String::class.java)
+                                val n = key.child("valueprogress").getValue(Int::class.java)
 
 
-//constructor( mnomold :String?, tech1: String?, tech2: String?, tech3: String?, tech4: String?,analisa: String?,problem: String?, jenisproblem: String?, estimasi: Long?,start: Long?, key:String?)
-                                listOnProgress.add(PlanningContainer(a,b,c,d,e,f,g,h,i,j,k))
+                                listOnProgress.add(PlanningContainer(a,b,c,d,e,f,g,h,i,j,k,l,m,n))
 
                                 Log.i("Datasnapshot", "Datasnapshot : " + key.toString())
                                 Log.i("kata f ", f.toString())
@@ -136,6 +139,15 @@ class PlanningAdapter: AppCompatActivity() {
             vh.problemTV.text = listProblemOnprogress[position].mProblemETpl
             //vh.estimasiadapter.text = listProblemOnprogress[position].estimasipl
 
+            vh.displayProgressBar.setMax (100)
+            if (listProblemOnprogress[position].valueprogresspl==null){
+                vh.displayProgressBar.setProgress(0)
+            }
+            else if(listProblemOnprogress[position].valueprogresspl==null){
+                vh.displayProgressBar.setProgress(listProblemOnprogress[position].valueprogresspl!!)
+            }
+
+
             totalestimasi = listProblemOnprogress[position].mstart
             //est = listProblemOnprogress[position].estimasipl
 
@@ -173,13 +185,17 @@ class PlanningAdapter: AppCompatActivity() {
         val nomoldrpTV: TextView
         val problemTV: TextView
         val hitungrp: Chronometer
-        //val estimasiadapter : TextView
+        val estimasijam : TextView
+        val estimasimenit : TextView
+        val displayProgressBar : ProgressBar
 
         init {
             this.nomoldrpTV = view?.findViewById<TextView>(R.id.nomoldrpTV) as TextView
             this.problemTV = view.findViewById<TextView>(R.id.problemTV) as TextView
             this.hitungrp = view.findViewById<Chronometer>(R.id.hitungrp) as Chronometer
-            //this.estimasiadapter = view.findViewById<TextView>(R.id.estimasiadapter) as TextView
+            this.estimasijam = view.findViewById<TextView>(R.id.estimasijam) as TextView
+            this.estimasimenit = view.findViewById<TextView>(R.id.estimasimenit) as TextView
+            this.displayProgressBar = view.findViewById<ProgressBar>(R.id.progressBar) as ProgressBar
         }
     }
 
