@@ -7,6 +7,7 @@ import android.view.View
 import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.database.FirebaseDatabase
+import kotlinx.android.synthetic.main.activity_confirmation.*
 
 class ConfirmationBR : AppCompatActivity() {
 
@@ -28,7 +29,7 @@ class ConfirmationBR : AppCompatActivity() {
     private lateinit var kunci: String
 
     lateinit var finishProgressBTNrp: ImageButton
-    //private lateinit var radiogroup: RadioGroup
+    private lateinit var radiogroup: RadioGroup
     private lateinit var nomoldconf: TextView
     private lateinit var tech1conf: TextView
     private lateinit var tech2conf: TextView
@@ -46,7 +47,7 @@ class ConfirmationBR : AppCompatActivity() {
         super.onCreate(savedInstanceState)
 
         setContentView(R.layout.activity_confirmation)
-
+        radiogroup  = findViewById<RadioGroup>(R.id.radiogroupconf)
         nomoldconf = findViewById<TextView>(R.id.nomoldconf)
         tech1conf = findViewById<TextView>(R.id.tech1conf)
         tech2conf = findViewById<TextView>(R.id.tech2conf)
@@ -80,6 +81,7 @@ class ConfirmationBR : AppCompatActivity() {
         tech2conf.text = tech2
         tech3conf.text = tech3
         tech4conf.text = tech4
+        radiogroupconf.clearCheck()
 
         analisaconf.text = analisa
 
@@ -87,6 +89,20 @@ class ConfirmationBR : AppCompatActivity() {
         jenisproblemconf.text = jenisproblem
 
         estconf.text = estimasi.toString()
+
+
+        radiogroupconf.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener){
+            @Override
+            public void onCheckedChanged(RadioGroup group, int checkedId) {
+                RadioButton rb = (RadioButton) group.findViewById(checkedId);
+                if(null!=rb && checkedId > -1){
+                    Toast.makeText(MainActivity.this, rb.getText(), Toast.LENGTH_SHORT).show();
+                }
+
+            }
+        })
+
+        }
 
     }
 

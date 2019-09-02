@@ -430,7 +430,7 @@
             </androidx.constraintlayout.widget.ConstraintLayout>
 
             <RadioGroup
-                    android:id="@+id/radiogroup"
+                    android:id="@+id/radiogroupconf"
                     android:layout_width="191dp"
                     android:layout_height="218dp"
                     android:layout_marginStart="8dp"
@@ -442,44 +442,44 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="16dp"
-                        android:text="@string/btnBongkar"/>
+                        android:text="Bongkar" />
 
                 <RadioButton
                         android:id="@+id/btnRepair"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="8dp"
-                        android:text="@string/btnRepair"/>
+                        android:text="Repair/Ganti Sparepart" />
 
                 <RadioButton
                         android:id="@+id/btnAssembly"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="8dp"
-                        android:text="@string/btnAssembly"/>
+                        android:text="Assembly" />
 
                 <RadioButton
                         android:id="@+id/btnTesting"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="8dp"
-                        android:text="@string/btnTesting"/>
+                        android:text="Testing" />
 
                 <RadioButton
                         android:id="@+id/btnFinish"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="8dp"
-                        android:text="@string/btnFinish"/>
+                        android:text="Finish" />
             </RadioGroup>
 
             <ImageButton
                     android:id="@+id/btnUpdate"
                     android:layout_width="124dp"
                     android:layout_height="50dp"
-                    app:layout_constraintBottom_toBottomOf="@+id/radiogroup"
+                    app:layout_constraintBottom_toBottomOf="@+id/radiogroupconf"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toEndOf="@+id/radiogroup"
+                    app:layout_constraintStart_toEndOf="@+id/radiogroupconf"
                     app:layout_constraintTop_toBottomOf="@+id/confirmationly"
                     app:srcCompat="@android:drawable/button_onoff_indicator_on" />
 
