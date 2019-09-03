@@ -10,7 +10,7 @@
             android:id="@+id/analisarp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="32dp"
+            android:layout_marginStart="8dp"
             android:layout_marginTop="12dp"
             android:fontFamily="@font/bahnschrift"
             android:text="Problem :"
@@ -22,18 +22,15 @@
 
     <TextView
             android:id="@+id/problemTV"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
+            android:layout_width="136dp"
+            android:layout_height="23dp"
             android:layout_marginEnd="8dp"
             android:fontFamily="@font/bahnschrift"
             android:text="Problem"
             android:textStyle="bold"
-            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/textView4"
             app:layout_constraintStart_toEndOf="@+id/analisarp"
-            app:layout_constraintTop_toTopOf="@+id/analisarp"
-            app:layout_constraintVertical_bias="0.0" />
+            app:layout_constraintTop_toTopOf="@+id/analisarp" />
 
     <Chronometer
             android:id="@+id/hitungrp"
@@ -66,8 +63,6 @@
             android:id="@+id/textView3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:layout_marginEnd="32dp"
             android:fontFamily="@font/bahnschrift"
             android:text="Menit"
             android:textColor="@color/black"
@@ -82,7 +77,6 @@
             android:id="@+id/estimasijam"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
             android:layout_marginBottom="8dp"
             android:fontFamily="@font/bahnschrift"
             android:text="Jam"
@@ -97,8 +91,6 @@
             android:id="@+id/estimasimenit"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:layout_marginEnd="8dp"
             android:fontFamily="@font/bahnschrift"
             android:text="Menit"
             android:textColor="@color/green"
@@ -112,7 +104,6 @@
             android:id="@+id/textView4"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
 
             android:layout_marginTop="8dp"
             android:fontFamily="@font/bahnschrift"
@@ -123,14 +114,12 @@
             app:layout_constraintEnd_toStartOf="@+id/estimasijam"
             app:layout_constraintStart_toEndOf="@+id/problemTV"
             app:layout_constraintTop_toBottomOf="@+id/hitungrp"
-            app:layout_constraintVertical_bias="0.105" />
+            app:layout_constraintVertical_bias="0.263" />
 
     <TextView
             android:id="@+id/textView2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:layout_marginEnd="8dp"
             android:fontFamily="@font/bahnschrift"
             android:text="Jam"
             android:textColor="@color/black"
