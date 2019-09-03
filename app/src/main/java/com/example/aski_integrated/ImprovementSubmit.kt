@@ -141,7 +141,7 @@ class ImprovementSubmit : AppCompatActivity() {
             val tech4 = tech4rp.text.toString()
             val analisa = analisarp.text.toString()
             val problem = problemETrp.text.toString()
-            //val estimasi = estimasi.text.toString()
+            val estimasi = estimasi.text.toString()
             val jenisproblem = jenisProblemETrp.text.toString()
             val estimasijam = estimasi_jamET.text.toString()
             val estimasimenit = estimasi_menitET.text.toString()

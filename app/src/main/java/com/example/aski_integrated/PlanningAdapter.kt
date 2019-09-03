@@ -51,6 +51,8 @@ class PlanningAdapter: AppCompatActivity() {
                 launch4.putExtra("start", listOnProgress[position].mstart)
                 launch4.putExtra("estimasi", listOnProgress[position].estimasipl)
                 launch4.putExtra("key", listOnProgress[position].mKeypl)
+                launch4.putExtra("estimasijam", listOnProgress[position].mestimasijam)
+                launch4.putExtra("estimasimenit", listOnProgress[position].mestimasimenit)
                 launch4.putExtra("valueprogress",listOnProgress[position].valueprogresspl)
                 startActivity(launch4)
             }
@@ -137,6 +139,9 @@ class PlanningAdapter: AppCompatActivity() {
 
             vh.nomoldrpTV.text = listProblemOnprogress[position].mnomold
             vh.problemTV.text = listProblemOnprogress[position].mProblemETpl
+
+            vh.estimasijam.text = listProblemOnprogress[position].mestimasijam.toString()
+            vh.estimasimenit.text = listProblemOnprogress[position].mestimasimenit.toString()
             //vh.estimasiadapter.text = listProblemOnprogress[position].estimasipl
 
             vh.displayProgressBar.setMax (100)
