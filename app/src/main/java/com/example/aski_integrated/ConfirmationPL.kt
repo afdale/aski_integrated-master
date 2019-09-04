@@ -12,6 +12,7 @@ import com.google.firebase.database.FirebaseDatabase
 import java.lang.Exception
 
 class ConfirmationPL : AppCompatActivity() {
+
     lateinit var ref: DatabaseReference
     lateinit var connectionClass: ConnectionClass
 
@@ -55,8 +56,8 @@ class ConfirmationPL : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_confirmation)
 
+        setContentView(R.layout.activity_confirmation)
         nomoldconf = findViewById<TextView>(R.id.nomoldconf)
         tech1conf = findViewById<TextView>(R.id.tech1conf)
         tech2conf = findViewById<TextView>(R.id.tech2conf)
@@ -67,8 +68,10 @@ class ConfirmationPL : AppCompatActivity() {
         analisaconf = findViewById<TextView>(R.id.analisaconf)
         perbaikanETconf = findViewById<EditText>(R.id.perbaikanETconf)
         jenisproblemconf = findViewById<TextView>(R.id.jenisproblemconf)
+
         connectionClass = ConnectionClass()
         finishProgressBTNrp = findViewById<ImageButton>(R.id.finishProgressBTNrp)
+
 
         kunci = getIntent().getStringExtra("key")
         asal = getIntent().getStringExtra("asal")
@@ -81,20 +84,21 @@ class ConfirmationPL : AppCompatActivity() {
         problem = getIntent().getStringExtra("problem")
         jenisproblem = getIntent().getStringExtra("jenisproblem")
         estimasi = getIntent().getStringExtra("estimasi")
-        perbaikan = getIntent().getStringExtra("perbaikan")
         start = getIntent().getStringExtra("start")
+
 
         nomoldconf.text = nomold
         tech1conf.text = tech1
         tech2conf.text = tech2
         tech3conf.text = tech3
         tech4conf.text = tech4
+
         analisaconf.text = analisa
+
         problemconf.text = problem
         jenisproblemconf.text = jenisproblem
-        estconf.text = estimasi
 
-
+        estconf.text = estimasi.toString()
 
         radiogroup  = findViewById<RadioGroup>(R.id.radiogroupconf)
         btnBongkar  = findViewById<RadioButton>(R.id.btnBongkar)
@@ -145,14 +149,13 @@ class ConfirmationPL : AppCompatActivity() {
 
     }
 
-
-    fun goCancelProgress(view: View){
+    fun goCancelProgress(view: View) {
         finish()
     }
 
-    fun goFinishProgress(view: View){
-       perbaikan = perbaikanETconf.text.toString()
+    fun goFinishProgress(view: View) {
 
+        perbaikan = perbaikanETconf.text.toString()
         Douploadreport(this).execute()
         finish()
     }
@@ -169,6 +172,7 @@ class ConfirmationPL : AppCompatActivity() {
             dialog.show()
 
         }
+
         override fun doInBackground(vararg params: String): String {
             try {
                 val con = connectionClass.CONN()
@@ -176,9 +180,8 @@ class ConfirmationPL : AppCompatActivity() {
                 if (con == null) {
                     z = "Please check your internet connection"
                 } else {
-                    val query = "INSERT INTO planning (mold,tech1,tech2,tech3,tech4,analisa, problem,jenisproblem,estimasi,start,perbaikan) VALUES ('$nomold','$tech1','$tech2','$tech3','$tech4','$analisa','$problem','$jenisproblem','$estimasi','$start','$perbaikan')"
-                    //sql server String query = "insert into planing (mold,tech1,tech2,tech3,tech4,analisa, problem,jenisproblem,estimasi,start,perbaikan)
-                    // values ('" + mold + "','" + tech1 + "','" + tech2 + "','" + tech3 + "','" + tech4+ "','" + analisa + "','" + problem + "','" + jenisproblem + "','" + estimasi + "','" + start + "','" + perbaikan + "')";
+                    val query =
+                        "INSERT INTO planning (mold,tech1,tech2,tech3,tech4,analisa, problem,jenisproblem,estimasi,start,perbaikan) VALUES ('$nomold','$tech1','$tech2','$tech3','$tech4','$analisa','$problem','$jenisproblem','$estimasi','$start','$perbaikan')"
                     val stmt = con.createStatement()
                     stmt.executeUpdate(query)
                     z = "Upload successfull"
@@ -194,10 +197,10 @@ class ConfirmationPL : AppCompatActivity() {
         override fun onPostExecute(s: String) {
             dialog.dismiss()
             Toast.makeText(this@ConfirmationPL, "" + z, Toast.LENGTH_LONG).show()
-            if(isSuccess)
-            {
+
+            if (isSuccess) {
                 FirebaseDatabase.getInstance().getReference().child("planning").child("onprogress")
-                    .child("REPAIRING").child(kunci).removeValue()
+                    .child("REPAIRING").removeValue()
                 this@ConfirmationPL.finish()
             }
         }

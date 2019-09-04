@@ -2,22 +2,20 @@ package com.example.aski_integrated
 
 class ImprovementContainer {
 
-
-
     var mnomold: String? = null
-    var mKeyimp: String? = null
+    var mKey: String? = null
     var mtech1: String? = null
     var mtech2: String? = null
     var mtech3: String? = null
     var mtech4: String? = null
-    var mAnalisaimp: String? = null
-    var mProblemETimp: String? = null
-    var mjenisProblemETimp: String? = null
-    var estimasiimp: Long? = null
+    var mAnalisa: String? = null
+    var mProblemET: String? = null
+    var mjenisProblemET: String? = null
+    var mestimasi: Long? = null
     var mstart: Long? = null
     var mestimasijam: Long? = null
     var mestimasimenit: Long? = null
-    var valueprogressimp: Int? = null
+    var mvalueprogress : Int? = null
 
     constructor(
         mnomold: String?,
@@ -29,27 +27,27 @@ class ImprovementContainer {
         problem: String?,
         jenisproblem: String?,
         estimasi: Long?,
+        start: Long?,
         estimasijam: Long?,
         estimasimenit: Long?,
         key: String?,
-        start: Long?,
         valueprogress: Int?
 
     ) {
         this.mnomold = mnomold
-        this.mKeyimp = key
+        this.mKey = key
         this.mtech1 = tech1
         this.mtech2 = tech2
         this.mtech3 = tech3
         this.mtech4 = tech4
-        this.mAnalisaimp = analisa
-        this.mProblemETimp = problem
-        this.mjenisProblemETimp = jenisproblem
-        this.estimasiimp = estimasi
+        this.mAnalisa = analisa
+        this.mProblemET = problem
+        this.mjenisProblemET = jenisproblem
+        this.mestimasi = estimasi
         this.mstart = start
         this.mestimasijam = estimasijam
         this.mestimasimenit = estimasimenit
-        this.valueprogressimp = valueprogress
+        this.mvalueprogress = valueprogress
     }
 
     fun getemstart(): Long? {
@@ -60,12 +58,12 @@ class ImprovementContainer {
         mstart = start
     }
 
-    fun getestimasiimp(): Long? {
-        return estimasiimp
+    fun getmestimasi(): Long? {
+        return mestimasi
     }
 
-    fun setestimasiimp(estimasi: Long?) {
-        estimasiimp = estimasi
+    fun setmestimasi(estimasi: Long?) {
+        mestimasi = estimasi
     }
 
     fun getmestimasijam(): Long? {
@@ -84,94 +82,94 @@ class ImprovementContainer {
         mestimasimenit = estimasimenit
     }
 
-    fun getmKeyimp(): String? {
-        return mKeyimp
+    fun getKey(): String? {
+        return mKey
     }
 
-    fun setmKeyimp(key: String?) {
-        mKeyimp = key
+    fun setKey(key: String?) {
+        mKey = key
     }
 
-    fun getProbelemETimp(): String? {
-        return mProblemETimp
+    fun getmProbelemET(): String? {
+        return mProblemET
     }
 
-    fun setProblemETimp(problem: String?) {
-        mProblemETimp = problem
+    fun setmProblemET(problem: String?) {
+        mProblemET = problem
     }
 
-    fun getjenisProblemETimp(): String? {
-        return mjenisProblemETimp
+    fun getmjenisProblemET(): String? {
+        return mjenisProblemET
     }
 
-    fun setjenisProblemETimp(jenisproblem: String?) {
-        mjenisProblemETimp = jenisproblem
+    fun setmjenisProblemET(jenisproblem: String?) {
+        mjenisProblemET = jenisproblem
     }
 
-    fun gettech1(): String? {
+    fun getmtech1(): String? {
         return mtech1
     }
 
-    fun settech1(tech1: String?) {
+    fun setmtech1(tech1: String?) {
         mtech1 = tech1
     }
 
-    fun gettech2(): String? {
+    fun getmtech2(): String? {
         return mtech2
     }
 
-    fun settech2(tech2: String?) {
+    fun setmtech2(tech2: String?) {
         mtech2 = tech2
     }
 
-    fun gettech3(): String? {
+    fun getmtech3(): String? {
         return mtech3
     }
 
-    fun settech3(tech3: String?) {
+    fun setmtech3(tech3: String?) {
         mtech3 = tech3
     }
 
-    fun gettech4(): String? {
+    fun getmtech4(): String? {
         return mtech4
     }
 
-    fun settech4(tech4: String?) {
+    fun setmtech4(tech4: String?) {
         mtech4 = tech4
     }
 
-    fun getKeyimp(): String? {
-        return mKeyimp
+    fun getmKey(): String? {
+        return mKey
     }
 
-    fun setKeyimp(keyimp: String?) {
-        mKeyimp = keyimp
+    fun setmKey(key: String?) {
+        mKey = key
     }
 
-    fun getNoMoldimp(): String? {
+    fun getNoMold(): String? {
         return mnomold
     }
 
-    fun setNoMoldimp(nomold: String?) {
-        mnomold = mnomold
+    fun setNoMold(nomold: String?) {
+        mnomold = nomold
     }
 
 
-    fun getAnalisaimp(): String? {
-        return mAnalisaimp
+    fun getAnalisa(): String? {
+        return mAnalisa
     }
 
-    fun setAnalisaimp(analisaimp: String?) {
-        mAnalisaimp = analisaimp
-    }
-
-
-    fun getValueprogress(): Int? {
-        return valueprogressimp
+    fun setAnalisa(analisa: String?) {
+        mAnalisa = analisa
     }
 
 
-    fun setValueprogress(valueprogress: Int?) {
-        valueprogressimp = valueprogress
+    fun getmvalueprogress (): Int? {
+        return mvalueprogress
+    }
+
+
+    fun setmvalueprogress (valueprogress: Int?) {
+        mvalueprogress = valueprogress
     }
 }

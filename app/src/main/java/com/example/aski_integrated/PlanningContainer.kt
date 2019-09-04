@@ -3,21 +3,20 @@ package com.example.aski_integrated
 class PlanningContainer {
 
 
-
     var mnomold: String? = null
-    var mKeypl: String? = null
+    var mKey: String? = null
     var mtech1: String? = null
     var mtech2: String? = null
     var mtech3: String? = null
     var mtech4: String? = null
-    var mAnalisapl: String? = null
-    var mProblemETpl: String? = null
-    var mjenisProblemETpl: String? = null
-    var estimasipl: Long? = null
+    var mAnalisa: String? = null
+    var mProblemET: String? = null
+    var mjenisProblemET: String? = null
+    var mestimasi: Long? = null
     var mstart: Long? = null
     var mestimasijam: Long? = null
     var mestimasimenit: Long? = null
-    var valueprogresspl: Int? = null
+    var mvalueprogress : Int? = null
 
     constructor(
         mnomold: String?,
@@ -29,27 +28,27 @@ class PlanningContainer {
         problem: String?,
         jenisproblem: String?,
         estimasi: Long?,
+        start: Long?,
         estimasijam: Long?,
         estimasimenit: Long?,
         key: String?,
-        start: Long?,
         valueprogress: Int?
 
     ) {
         this.mnomold = mnomold
-        this.mKeypl = key
+        this.mKey = key
         this.mtech1 = tech1
         this.mtech2 = tech2
         this.mtech3 = tech3
         this.mtech4 = tech4
-        this.mAnalisapl = analisa
-        this.mProblemETpl = problem
-        this.mjenisProblemETpl = jenisproblem
-        this.estimasipl = estimasi
+        this.mAnalisa = analisa
+        this.mProblemET = problem
+        this.mjenisProblemET = jenisproblem
+        this.mestimasi = estimasi
         this.mstart = start
         this.mestimasijam = estimasijam
         this.mestimasimenit = estimasimenit
-        this.valueprogresspl = valueprogress
+        this.mvalueprogress = valueprogress
     }
 
     fun getemstart(): Long? {
@@ -60,12 +59,12 @@ class PlanningContainer {
         mstart = start
     }
 
-    fun getestimasipl(): Long? {
-        return estimasipl
+    fun getmestimasi(): Long? {
+        return mestimasi
     }
 
-    fun setestimasipl(estimasi: Long?) {
-        estimasipl = estimasi
+    fun setmestimasi(estimasi: Long?) {
+        mestimasi = estimasi
     }
 
     fun getmestimasijam(): Long? {
@@ -84,94 +83,94 @@ class PlanningContainer {
         mestimasimenit = estimasimenit
     }
 
-    fun getmKeypl(): String? {
-        return mKeypl
+    fun getKey(): String? {
+        return mKey
     }
 
-    fun setmKeypl(key: String?) {
-        mKeypl = key
+    fun setKey(key: String?) {
+        mKey = key
     }
 
-    fun getProbelemETpl(): String? {
-        return mProblemETpl
+    fun getmProbelemET(): String? {
+        return mProblemET
     }
 
-    fun setProblemETpl(problem: String?) {
-        mProblemETpl = problem
+    fun setmProblemET(problem: String?) {
+        mProblemET = problem
     }
 
-    fun getjenisProblemETpl(): String? {
-        return mjenisProblemETpl
+    fun getmjenisProblemET(): String? {
+        return mjenisProblemET
     }
 
-    fun setjenisProblemETpl(jenisproblem: String?) {
-        mjenisProblemETpl = jenisproblem
+    fun setmjenisProblemET(jenisproblem: String?) {
+        mjenisProblemET = jenisproblem
     }
 
-    fun gettech1(): String? {
+    fun getmtech1(): String? {
         return mtech1
     }
 
-    fun settech1(tech1: String?) {
+    fun setmtech1(tech1: String?) {
         mtech1 = tech1
     }
 
-    fun gettech2(): String? {
+    fun getmtech2(): String? {
         return mtech2
     }
 
-    fun settech2(tech2: String?) {
+    fun setmtech2(tech2: String?) {
         mtech2 = tech2
     }
 
-    fun gettech3(): String? {
+    fun getmtech3(): String? {
         return mtech3
     }
 
-    fun settech3(tech3: String?) {
+    fun setmtech3(tech3: String?) {
         mtech3 = tech3
     }
 
-    fun gettech4(): String? {
+    fun getmtech4(): String? {
         return mtech4
     }
 
-    fun settech4(tech4: String?) {
+    fun setmtech4(tech4: String?) {
         mtech4 = tech4
     }
 
-    fun getKeypl(): String? {
-        return mKeypl
+    fun getmKey(): String? {
+        return mKey
     }
 
-    fun setKeypl(keypl: String?) {
-        mKeypl = keypl
+    fun setmKey(key: String?) {
+        mKey = key
     }
 
-    fun getNoMoldpl(): String? {
+    fun getNoMold(): String? {
         return mnomold
     }
 
-    fun setNoMoldpl(nomold: String?) {
-        mnomold = mnomold
+    fun setNoMold(nomold: String?) {
+        mnomold = nomold
     }
 
 
-    fun getAnalisapl(): String? {
-        return mAnalisapl
+    fun getAnalisa(): String? {
+        return mAnalisa
     }
 
-    fun setAnalisapl(analisapl: String?) {
-        mAnalisapl = analisapl
-    }
-
-
-    fun getValueprogress(): Int? {
-        return valueprogresspl
+    fun setAnalisa(analisa: String?) {
+        mAnalisa = analisa
     }
 
 
-    fun setValueprogress(valueprogress: Int?) {
-        valueprogresspl = valueprogress
+    fun getmvalueprogress (): Int? {
+        return mvalueprogress
+    }
+
+
+    fun setmvalueprogress (valueprogress: Int?) {
+        mvalueprogress = valueprogress
     }
 }

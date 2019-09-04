@@ -1,7 +1,6 @@
 package com.example.aski_integrated
 
 import android.app.Dialog
-import android.content.Intent
 import android.os.AsyncTask
 import android.os.Bundle
 import android.view.View

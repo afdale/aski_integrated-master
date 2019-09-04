@@ -29,8 +29,6 @@ class BreakdownSubmit : AppCompatActivity() {
     lateinit var technician2: TextView
     lateinit var technician3: TextView
     lateinit var technician4: TextView
-    //lateinit var estimasi: TextView
-    //var estimasiwkt: String = "Estimasi Waktu"
 
 
     lateinit var problem: EditText
@@ -80,26 +78,6 @@ class BreakdownSubmit : AppCompatActivity() {
         technician3.text = tech3
         technician4.text = tech4
 
-/*
-        val estimasiBTN = findViewById<ImageButton>(R.id.estimasiBTN)
-        val estimasiTV = findViewById<TextView>(R.id.estimasiTV)
-
-        estimasiBTN.setOnClickListener {
-            val cal = Calendar.getInstance()
-            val timeSetListener = TimePickerDialog.OnTimeSetListener { timePicker, hour, minute ->
-                cal.set(Calendar.HOUR_OF_DAY, hour)
-                cal.set(Calendar.MINUTE, minute)
-                estimasiTV.text = SimpleDateFormat("HH:mm").format(cal.time)
-            }
-            TimePickerDialog(
-                this,
-                timeSetListener,
-                cal.get(Calendar.HOUR_OF_DAY),
-                cal.get(Calendar.MINUTE),
-                true
-            ).show()
-        }
-        */
 
 
         btnmold!!.setOnClickListener {

@@ -20,14 +20,14 @@
             app:layout_constraintBottom_toTopOf="@+id/progressBar"
             app:layout_constraintEnd_toStartOf="@+id/problemTV"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/nomoldrpTV" />
+            app:layout_constraintTop_toBottomOf="@+id/nomoldrpTV"
+            app:layout_constraintVertical_bias="0.419" />
 
     <TextView
             android:id="@+id/problemTV"
-            android:layout_width="116dp"
-            android:layout_height="36dp"
+            android:layout_width="121dp"
+            android:layout_height="47dp"
             android:layout_marginEnd="8dp"
-            android:layout_marginBottom="1dp"
             android:fontFamily="@font/bahnschrift"
             android:text="Problem"
             android:textStyle="bold"
@@ -140,7 +140,7 @@
             android:layout_width="0dp"
             android:layout_height="15dp"
             android:layout_marginStart="32dp"
-            android:layout_marginTop="8dp"
+            android:layout_marginTop="16dp"
             android:layout_marginEnd="32dp"
             android:layout_marginBottom="16dp"
             android:background="@color/aski"

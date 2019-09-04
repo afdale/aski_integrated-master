@@ -55,15 +55,15 @@ class BreakdownAdapter: AppCompatActivity() {
                 launch4.putExtra("tech3", listOnProgress[position].mtech3)
                 launch4.putExtra("tech4", listOnProgress[position].mtech4)
                 launch4.putExtra("mold", listOnProgress[position].mnomold)
-                launch4.putExtra("problem", listOnProgress[position].mProblemETbr)
-                launch4.putExtra("jenisproblem", listOnProgress[position].mjenisProblemETbr)
-                launch4.putExtra("analisa", listOnProgress[position].mAnalisabr)
+                launch4.putExtra("problem", listOnProgress[position].mProblemET)
+                launch4.putExtra("jenisproblem", listOnProgress[position].mjenisProblemET)
+                launch4.putExtra("analisa", listOnProgress[position].mAnalisa)
                 launch4.putExtra("start", listOnProgress[position].mstart)
-                launch4.putExtra("estimasi", listOnProgress[position].estimasibr)
-                launch4.putExtra("key", listOnProgress[position].mKeybr)
+                launch4.putExtra("estimasi", listOnProgress[position].mestimasi)
+                launch4.putExtra("key", listOnProgress[position].mKey)
                 launch4.putExtra("estimasijam", listOnProgress[position].mestimasijam)
                 launch4.putExtra("estimasimenit", listOnProgress[position].mestimasimenit)
-                launch4.putExtra("valueprogress",listOnProgress[position].valueprogressbr)
+                launch4.putExtra("valueprogress",listOnProgress[position].mvalueprogress)
                 startActivity(launch4)
             }
         }catch (ex:Exception){
@@ -100,7 +100,7 @@ class BreakdownAdapter: AppCompatActivity() {
                                 val l = key.child("key").getValue(String::class.java)
                                 val n = key.child("valueprogress").getValue(Int::class.java)
 
-                                listOnProgress.add(BreakdownContainer(a,b,c,d,e,f,g,h,i,j,k,l,m,n))
+                                listOnProgress.add(BreakdownContainer(a,b,c,d,e,f,g,h,i,m,j,k,l,n))
 
                                 Log.i("Datasnapshot", "Datasnapshot : " + key.toString())
                                 Log.i("kata f ", f.toString())
@@ -153,16 +153,16 @@ class BreakdownAdapter: AppCompatActivity() {
             try {
 
                 vh.nomoldrpTV.text = listProblemOnprogress[position].mnomold
-                vh.problemTV.text = listProblemOnprogress[position].mProblemETbr
+                vh.problemTV.text = listProblemOnprogress[position].mProblemET
                 vh.estimasijam.text = listProblemOnprogress[position].mestimasijam.toString()
                 vh.estimasimenit.text = listProblemOnprogress[position].mestimasimenit.toString()
 
                 vh.displayProgressBar.setMax (100)
-                if (listProblemOnprogress[position].valueprogressbr==null){
+                if (listProblemOnprogress[position].mvalueprogress==null){
                     vh.displayProgressBar.setProgress(0)
                 }
-                else if(listProblemOnprogress[position].valueprogressbr!=null){
-                    vh.displayProgressBar.setProgress(listProblemOnprogress[position].valueprogressbr!!)
+                else if(listProblemOnprogress[position].mvalueprogress!=null){
+                    vh.displayProgressBar.setProgress(listProblemOnprogress[position].mvalueprogress!!)
                 }
 
 

@@ -19,6 +19,7 @@ import java.util.ArrayList
 class ImprovementAdapter: AppCompatActivity() {
 
     lateinit var submit: ImageButton
+
     private var listOnProgress = ArrayList<ImprovementContainer>()
     private lateinit var listOnprogressAdapter: BaseAdapter
 
@@ -32,9 +33,13 @@ class ImprovementAdapter: AppCompatActivity() {
 
 
         submit = findViewById<ImageButton>(R.id.submit)
+
         submit.setOnClickListener {
+
             val intent = Intent(this, ImprovementSubmit::class.java)
             startActivity(intent)
+            //displaypProgressBar.visibility = View.VISIBLE
+
         }
         try {
             val onprogressListView = findViewById<ListView>(R.id.onpro)
@@ -45,23 +50,20 @@ class ImprovementAdapter: AppCompatActivity() {
             onprogressListView.setOnItemClickListener { parent, view, position, id ->
                 val launch4 = Intent(this, ConfirmationIMP::class.java)
                 launch4.putExtra("asal", "onprogress")
-
-                launch4.putExtra("mold", listOnProgress[position].mnomold)
                 launch4.putExtra("tech1", listOnProgress[position].mtech1)
                 launch4.putExtra("tech2", listOnProgress[position].mtech2)
                 launch4.putExtra("tech3", listOnProgress[position].mtech3)
                 launch4.putExtra("tech4", listOnProgress[position].mtech4)
-
-                launch4.putExtra("analisa", listOnProgress[position].mAnalisaimp)
-                launch4.putExtra("problem", listOnProgress[position].mProblemETimp)
-                launch4.putExtra("jenisproblem", listOnProgress[position].mjenisProblemETimp)
+                launch4.putExtra("mold", listOnProgress[position].mnomold)
+                launch4.putExtra("problem", listOnProgress[position].mProblemET)
+                launch4.putExtra("jenisproblem", listOnProgress[position].mjenisProblemET)
+                launch4.putExtra("analisa", listOnProgress[position].mAnalisa)
                 launch4.putExtra("start", listOnProgress[position].mstart)
-                launch4.putExtra("estimasi", listOnProgress[position].estimasiimp)
-                launch4.putExtra("key", listOnProgress[position].mKeyimp)
+                launch4.putExtra("estimasi", listOnProgress[position].mestimasi)
+                launch4.putExtra("key", listOnProgress[position].mKey)
                 launch4.putExtra("estimasijam", listOnProgress[position].mestimasijam)
                 launch4.putExtra("estimasimenit", listOnProgress[position].mestimasimenit)
-                launch4.putExtra("valueprogress",listOnProgress[position].valueprogressimp)
-
+                launch4.putExtra("valueprogress",listOnProgress[position].mvalueprogress)
                 startActivity(launch4)
             }
         }catch (ex:Exception){
@@ -98,8 +100,7 @@ class ImprovementAdapter: AppCompatActivity() {
                                 val l = key.child("key").getValue(String::class.java)
                                 val n = key.child("valueprogress").getValue(Int::class.java)
 
-
-                                listOnProgress.add(ImprovementContainer(a,b,c,d,e,f,g,h,i,j,k,l,m,n))
+                                listOnProgress.add(ImprovementContainer(a,b,c,d,e,f,g,h,i,m,j,k,l,n))
 
                                 Log.i("Datasnapshot", "Datasnapshot : " + key.toString())
                                 Log.i("kata f ", f.toString())
@@ -146,31 +147,42 @@ class ImprovementAdapter: AppCompatActivity() {
             }
 
 
-            vh.nomoldrpTV.text = listProblemOnprogress[position].mnomold
-            vh.problemTV.text = listProblemOnprogress[position].mProblemETimp
-            vh.estimasijam.text = listProblemOnprogress[position].mestimasijam.toString()
-            vh.estimasimenit.text = listProblemOnprogress[position].mestimasimenit.toString()
 
-            vh.displayProgressBar.setMax (100)
-            if (listProblemOnprogress[position].valueprogressimp==null){
-                vh.displayProgressBar.setProgress(0)
+            /*   displaypProgressBar.setMax(100)[position]
+               displaypProgressBar.setProgress(20)*/
+            try {
+
+                vh.nomoldrpTV.text = listProblemOnprogress[position].mnomold
+                vh.problemTV.text = listProblemOnprogress[position].mProblemET
+                vh.estimasijam.text = listProblemOnprogress[position].mestimasijam.toString()
+                vh.estimasimenit.text = listProblemOnprogress[position].mestimasimenit.toString()
+
+                vh.displayProgressBar.setMax (100)
+                if (listProblemOnprogress[position].mvalueprogress==null){
+                    vh.displayProgressBar.setProgress(0)
+                }
+                else if(listProblemOnprogress[position].mvalueprogress!=null){
+                    vh.displayProgressBar.setProgress(listProblemOnprogress[position].mvalueprogress!!)
+                }
+
+
+                totalestimasi = listProblemOnprogress[position].mstart
+                //est = listProblemOnprogress[position].estimasibr
+
+                val selisihgmt:Long = System.currentTimeMillis() - SystemClock.elapsedRealtime()
+                waktu = totalestimasi!! - selisihgmt
+
+
+                Log.i("time","waktu : "+waktu!!.toString())
+                Log.i("time","system millis : "+System.currentTimeMillis().toString())
+                Log.i("time","system clock : "+ SystemClock.elapsedRealtime().toString())
+                vh.hitungrp.base = waktu!!
+                vh.hitungrp.start()
+            }catch (ex2:java.lang.Exception){
+                Log.i("error data","$ex2")
             }
-            else if(listProblemOnprogress[position].valueprogressimp==null){
-                vh.displayProgressBar.setProgress(listProblemOnprogress[position].valueprogressimp!!)
-            }
-
-            totalestimasi = listProblemOnprogress[position].mstart
-            //est = listProblemOnprogress[position].estimasiimp
-
-            val selisihgmt:Long = System.currentTimeMillis() - SystemClock.elapsedRealtime()
-            waktu = totalestimasi!! - selisihgmt
 
 
-            Log.i("time","waktu : "+waktu!!.toString())
-            Log.i("time","system millis : "+System.currentTimeMillis().toString())
-            Log.i("time","system clock : "+ SystemClock.elapsedRealtime().toString())
-            vh.hitungrp.base = waktu!!
-            vh.hitungrp.start()
 
             return view
         }

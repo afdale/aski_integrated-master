@@ -15,9 +15,9 @@ import com.google.firebase.database.ServerValue
 import kotlinx.android.synthetic.main.formsubmit.*
 
 class PlanningSubmit : AppCompatActivity() {
+
     lateinit var ref: DatabaseReference
 
-    //val database = FirebaseDatabase.getInstance()
     private var btnmold: ImageButton? = null
     private var btntech1: ImageButton? = null
     private var btntech2: ImageButton? = null
@@ -30,8 +30,7 @@ class PlanningSubmit : AppCompatActivity() {
     lateinit var technician2: TextView
     lateinit var technician3: TextView
     lateinit var technician4: TextView
-    //lateinit var estimasi: TextView
-    //var estimasiwkt: String = "Estimasi Waktu"
+
 
     lateinit var problem: EditText
     lateinit var analisa: EditText
@@ -48,6 +47,7 @@ class PlanningSubmit : AppCompatActivity() {
     var tech3: String? = "N/A"
     var tech4: String? = "N/A"
 
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.formsubmit)
@@ -55,22 +55,18 @@ class PlanningSubmit : AppCompatActivity() {
             .child("REPAIRING")
 
         btnfinish = findViewById<ImageButton>(R.id.finishProgressBTNrp)
-
         btnmold = findViewById<ImageButton>(R.id.scanmoldrp)
-
         btntech1 = findViewById<ImageButton>(R.id.scantech1)
         btntech2 = findViewById<ImageButton>(R.id.scantech2)
         btntech3 = findViewById<ImageButton>(R.id.scantech3)
         btntech4 = findViewById<ImageButton>(R.id.scantech4)
 
         nomold = findViewById<TextView>(R.id.nomoldrpTV)
-
         technician1 = findViewById<TextView>(R.id.tech1rp)
         technician2 = findViewById<TextView>(R.id.tech2rp)
         technician3 = findViewById<TextView>(R.id.tech3rp)
         technician4 = findViewById<TextView>(R.id.tech4rp)
         //estimasi = findViewById<TextView>(R.id.estimasiTV)
-
         problem = findViewById<EditText>(R.id.problemETrp)
         analisa = findViewById<EditText>(R.id.analisarp)
         jenisproblem = findViewById<EditText>(R.id.jenisProblemETrp)
@@ -83,24 +79,7 @@ class PlanningSubmit : AppCompatActivity() {
         technician3.text = tech3
         technician4.text = tech4
 
-        /*val estimasiBTN = findViewById<ImageButton>(R.id.estimasiBTN)
-        val estimasiTV = findViewById<TextView>(R.id.estimasiTV)
 
-        estimasiBTN.setOnClickListener {
-            val cal = Calendar.getInstance()
-            val timeSetListener = TimePickerDialog.OnTimeSetListener { timePicker, hour, minute ->
-                cal.set(Calendar.HOUR_OF_DAY, hour)
-                cal.set(Calendar.MINUTE, minute)
-                estimasiTV.text = SimpleDateFormat("HH:mm").format(cal.time)
-            }
-            TimePickerDialog(
-                this,
-                timeSetListener,
-                cal.get(Calendar.HOUR_OF_DAY),
-                cal.get(Calendar.MINUTE),
-                true
-            ).show()
-        }*/
 
         btnmold!!.setOnClickListener {
             val intent = Intent(this@PlanningSubmit, BarcodeScannerActivity::class.java)
@@ -129,6 +108,7 @@ class PlanningSubmit : AppCompatActivity() {
         }
         btnfinish!!.setOnClickListener {
             savedata()
+
             val intent = Intent(this, PlanningAdapter::class.java)
 
             finish()
@@ -142,10 +122,12 @@ class PlanningSubmit : AppCompatActivity() {
             val tech2 = tech2rp.text.toString()
             val tech3 = tech3rp.text.toString()
             val tech4 = tech4rp.text.toString()
-            val problem = problemETrp.text.toString()
-            //val estimasi = estimasi.text.toString()
             val analisa = analisarp.text.toString()
+            val problem = problemETrp.text.toString()
+            val estimasi = estimasi.text.toString()
             val jenisproblem = jenisProblemETrp.text.toString()
+            val estimasijam = estimasi_jamET.text.toString()
+            val estimasimenit = estimasi_menitET.text.toString()
 
             //val hasil = Mold(mold, tech1, tech2, tech3, tech4, problem, analisa, jenisproblem, estimasi, key, start)
             val moldId = ref.push().key.toString()
@@ -167,11 +149,14 @@ class PlanningSubmit : AppCompatActivity() {
             ref.child(moldId).child("tech2").setValue(tech2)
             ref.child(moldId).child("tech3").setValue(tech3)
             ref.child(moldId).child("tech4").setValue(tech4)
-            ref.child(moldId).child("problem").setValue(problem)
-            ref.child(moldId).child("estimasi").setValue(totalestimasi)
             ref.child(moldId).child("analisa").setValue(analisa)
+            ref.child(moldId).child("problem").setValue(problem)
             ref.child(moldId).child("jenisproblem").setValue(jenisproblem)
+            ref.child(moldId).child("estimasi").setValue(totalestimasi)
             ref.child(moldId).child("start").setValue(ServerValue.TIMESTAMP)
+            ref.child(moldId).child("estimasijam").setValue(estimasi_jam)
+            ref.child(moldId).child("estimasimenit").setValue(estimasi_menit)
+
             Toast.makeText(this, "Success", Toast.LENGTH_SHORT).show()
 
             nomoldrpTV.setText("")
@@ -224,7 +209,6 @@ class PlanningSubmit : AppCompatActivity() {
     fun DoUpload() {
         val launch4 = Intent(this, BarcodeScannerActivity::class.java)
         launch4.putExtra("asal", asal)
-        //launch4.putExtra("mc2",myMC)
         try {
             startActivity(launch4)
         } catch (ex: Exception) {
@@ -278,6 +262,8 @@ class PlanningSubmit : AppCompatActivity() {
     }
 
     fun goFinishProgress(view: View) {
+
+
         finish()
     }
 }
