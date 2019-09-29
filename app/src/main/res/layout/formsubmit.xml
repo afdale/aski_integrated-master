@@ -201,19 +201,23 @@
                 app:layout_constraintStart_toStartOf="parent"
                 android:layout_marginStart="8dp" app:layout_constraintEnd_toStartOf="@+id/tv2"
                 android:layout_marginTop="24dp" app:layout_constraintTop_toBottomOf="@+id/jamTV"/>
+
         <TextView
-                android:text="Jenis Problem :"
-                android:textColor="@color/black"
-                android:fontFamily="@font/bahnschrift"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
                 android:id="@+id/tv3"
-                android:textSize="18sp" android:textStyle="bold"
-                android:textAlignment="center"
+                android:layout_width="106dp"
+                android:layout_height="43dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="8dp"
+                android:fontFamily="@font/bahnschrift"
+                android:text="Jenis Problem :"
+                android:textAlignment="viewStart"
+                android:textColor="@color/black"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toStartOf="@+id/jenisProblemETrp"
                 app:layout_constraintStart_toStartOf="parent"
-                android:layout_marginStart="8dp" android:layout_marginTop="16dp"
-                app:layout_constraintTop_toBottomOf="@+id/analisarp"
-                app:layout_constraintEnd_toStartOf="@+id/jenisProblemETrp" android:layout_marginEnd="8dp"/>
+                app:layout_constraintTop_toBottomOf="@+id/analisarp" />
         <TextView
                 android:text=":"
                 android:textColor="@color/black"
@@ -337,22 +341,26 @@
                 android:layout_marginStart="4dp"
                 app:layout_constraintTop_toTopOf="@+id/tv2" android:layout_marginEnd="8dp"
                 app:layout_constraintEnd_toEndOf="parent"/>
+
         <EditText
-                android:layout_width="0dp"
-                android:textStyle="bold"
-                android:textColor="@color/black"
-                android:fontFamily="@font/bahnschrift"
-                android:layout_height="wrap_content"
-                android:ems="10"
                 android:id="@+id/jenisProblemETrp"
+                android:layout_width="280dp"
+                android:layout_height="40dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginBottom="32dp"
+                android:ems="10"
+                android:fontFamily="@font/bahnschrift"
+                android:hint="Jenis"
                 android:inputType="textMultiLine"
-                android:hint="Jenis" android:textAlignment="center"
-                app:layout_constraintEnd_toEndOf="parent"
+                android:textAlignment="center"
+                android:textColor="@color/black"
+                android:textStyle="bold"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/tv3" android:layout_marginStart="8dp"
-                app:layout_constraintHorizontal_bias="0.0" android:layout_marginEnd="32dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toEndOf="@+id/tv3"
                 app:layout_constraintTop_toTopOf="@+id/tv3"
-                android:layout_marginBottom="32dp" app:layout_constraintVertical_bias="0.0"/>
+                app:layout_constraintVertical_bias="0.0" />
 
         <TextView
                 android:text="Technician4"

@@ -107,13 +107,54 @@ class PlanningSubmit : AppCompatActivity() {
             startActivityForResult(intent, 5)
         }
         btnfinish!!.setOnClickListener {
-            savedata()
+            try {
+                val analisamsg: String = analisa.text.toString()
+                val estimasijammsg: String = estimasi_jam.text.toString()
+                val estimasimenitmsg: String = estimasi_menit.text.toString()
+                val problemmsg: String = problem.text.toString()
+                val jenisproblemmsg: String = jenisproblem.text.toString()
 
-            val intent = Intent(this, PlanningAdapter::class.java)
+                if (mold == "N/A")
+                {
+                    Toast.makeText(this, "Silahkan Scan No Mold", Toast.LENGTH_LONG).show()
+                }
+                else if (tech1 == "N/A")
+                {
+                    Toast.makeText(this, "Silahkan Scan ID Teknisi 1", Toast.LENGTH_LONG).show()
+                }
+                else if  (problemmsg.isEmpty())
+                {
+                    Toast.makeText(this, "Silahkan isi kolom problem", Toast.LENGTH_LONG).show()
+                }
+                else if (estimasijammsg.isEmpty())
+                {
+                    Toast.makeText(this, "Silahkan isi kolom estimasi jam", Toast.LENGTH_LONG).show()
+                }
+                else if (estimasimenitmsg.isEmpty())
+                {
+                    Toast.makeText(this, "Silahkan isi kolom estimasi menit", Toast.LENGTH_LONG).show()
+                }
+                else if (analisamsg.isEmpty())
+                {
+                    Toast.makeText(this, "Silahkan isi kolom Analisa", Toast.LENGTH_LONG).show()
+                }
+                else if (jenisproblemmsg.isEmpty())
+                {
+                    Toast.makeText(this, "Silahkan isi kolom Jenis Problem", Toast.LENGTH_LONG).show()
+                }
+                else{
+                    Toast.makeText(this, "Anda Telah Submit Breakdown dengan No. Mold $nomold", Toast.LENGTH_LONG).show()
+                    savedata()
+                    finish()
+                }
 
-            finish()
+            } catch (ex: Exception) {
+                Toast.makeText(this, "$ex", Toast.LENGTH_LONG).show()
+
+            }
         }
     }
+
 
     private fun savedata() {
         try {

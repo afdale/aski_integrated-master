@@ -26,17 +26,22 @@ class ConfirmationBR : AppCompatActivity() {
     private var estimasi: String? = null
     private var start: String? = null
     private var perbaikan: String? = null
+
     private lateinit var kunci: String
     private var valueprogress: Int= 0
 
 
+
     lateinit var finishProgressBTNrp: ImageButton
+
     private lateinit var radiogroup: RadioGroup
     private lateinit var btnBongkar: RadioButton
     private lateinit var btnRepair: RadioButton
     private lateinit var btnAssembly: RadioButton
     private lateinit var btnTesting: RadioButton
     private lateinit var btnFinish: RadioButton
+
+
     private lateinit var btnUpdate: ImageButton
     private lateinit var nomoldconf: TextView
     private lateinit var tech1conf: TextView
@@ -104,6 +109,7 @@ class ConfirmationBR : AppCompatActivity() {
         btnTesting  = findViewById<RadioButton>(R.id.btnTesting)
         btnFinish  = findViewById<RadioButton>(R.id.btnFinish)
         btnUpdate  = findViewById<ImageButton>(R.id.btnUpdate)
+
         ref = FirebaseDatabase.getInstance().getReference().child("breakdown").child("onprogress")
             .child("REPAIRING")
 

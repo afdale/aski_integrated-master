@@ -35,10 +35,8 @@ class BreakdownAdapter: AppCompatActivity() {
         submit = findViewById<ImageButton>(R.id.submit)
 
         submit.setOnClickListener {
-
             val intent = Intent(this, BreakdownSubmit::class.java)
             startActivity(intent)
-            //displaypProgressBar.visibility = View.VISIBLE
 
         }
         try {
@@ -115,6 +113,7 @@ class BreakdownAdapter: AppCompatActivity() {
                     }
 
                 })
+
         } catch (ez:Exception){
             Toast.makeText(this, "$ez", Toast.LENGTH_LONG).show()
         }
@@ -178,11 +177,10 @@ class BreakdownAdapter: AppCompatActivity() {
                 Log.i("time","system clock : "+ SystemClock.elapsedRealtime().toString())
                 vh.hitungrp.base = waktu!!
                 vh.hitungrp.start()
+
             }catch (ex2:java.lang.Exception){
                 Log.i("error data","$ex2")
             }
-
-
 
             return view
         }

@@ -6,6 +6,7 @@ import android.util.Log
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import com.google.zxing.Result
+import kotlinx.android.synthetic.main.formsubmit.*
 import me.dm7.barcodescanner.zxing.ZXingScannerView
 
 class BarcodeScannerActivity : AppCompatActivity(), ZXingScannerView.ResultHandler {
@@ -32,10 +33,10 @@ class BarcodeScannerActivity : AppCompatActivity(), ZXingScannerView.ResultHandl
         msgTV = findViewById<TextView>(R.id.msgTV)
 
         if ((asal=="mold")){
-            tulisanTVNEW.text = "Scan QR CODE pada MOLD untuk menyelesaikan"
+            tulisanTVNEW.text = "Scan QR CODE pada No Mold $nomoldrpTV untuk menyelesaikan"
         }
         else if ((asal.contains("ID", false))){
-            tulisanTVNEW.text = "Scan QR CODE pada TAGID untuk menyelesaikan"
+            tulisanTVNEW.text = "Scan QR CODE pada TAG ID $tech1rp untuk menyelesaikan"
         }
 
     }
